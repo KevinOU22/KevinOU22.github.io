@@ -1002,3 +1002,9 @@ kbd { font-family: var(--f-data); font-size: .75em; border: 1px solid currentCol
 /* ripped paper seam between station bands */
 .spread + .spread::after { content: ""; position: absolute; top: -15px; left: 50%; width: 100vw; margin-left: -50vw; height: 30px; z-index: -1; background: url("img/rip.svg") 0 0 / 600px 30px repeat-x; filter: drop-shadow(0 3px 3px rgba(5, 8, 25, .45)); pointer-events: none; }
 .colophon::after { content: ""; position: absolute; top: -15px; left: 50%; width: 100vw; margin-left: -50vw; height: 30px; z-index: -1; background: url("img/rip.svg") 0 0 / 600px 30px repeat-x; filter: drop-shadow(0 3px 3px rgba(5, 8, 25, .45)); }
+
+/* bolder ripped-paper seam + a washi strip pinning it */
+.spread + .spread::after, .colophon::after { top: -28px; height: 56px; background: url("img/rip.svg") 0 0 / 800px 56px repeat-x; filter: drop-shadow(0 4px 4px rgba(5, 8, 25, .5)) drop-shadow(0 -1px 2px rgba(5, 8, 25, .25)); }
+.spread:nth-of-type(odd) + .spread::after { background-position: -310px 0; }
+.spread:nth-of-type(3n) + .spread::after { background-position: -540px 0; transform: scaleX(-1); }
+.seam-tape { position: absolute; top: -22px; width: clamp(90px, 9vw, 130px); height: 30px; z-index: 3; pointer-events: none; opacity: .9; mask: url("img/washi-edge.svg") left / 8px 10px repeat-y, linear-gradient(#000,#000) center / calc(100% - 14px) 100% no-repeat, url("img/washi-edge.svg") right / 8px 10px repeat-y; }

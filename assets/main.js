@@ -591,4 +591,20 @@
     addEventListener("scroll", () => { if (!pRaf) pRaf = requestAnimationFrame(parallax); }, { passive: true });
     parallax();
   }
+  /* ── washi tape pinning each ripped seam ─────────── */
+  const TAPES = [
+    "rgba(255,214,64,.88) repeating-linear-gradient(90deg, transparent 0 10px, rgba(255,255,255,.35) 10px 12px)",
+    "rgba(102,150,230,.86) repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0 5px, transparent 5px 11px)",
+    "rgba(240,120,100,.86) radial-gradient(circle at 6px 6px, rgba(255,255,255,.6) 2px, transparent 2.5px) 0 0 / 12px 12px",
+    "rgba(191,230,211,.9) repeating-linear-gradient(0deg, transparent 0 6px, rgba(31,138,90,.25) 6px 8px)"
+  ];
+  const SPOTS = [12, 68, 34, 82, 20, 58, 44, 74];
+  spreads.slice(1).forEach((sec, i) => {
+    const t = document.createElement("span");
+    t.className = "seam-tape"; t.setAttribute("aria-hidden", "true");
+    t.style.left = SPOTS[i % SPOTS.length] + "%";
+    t.style.transform = `rotate(${[-7, 5, -3, 8, -5, 4, -8, 6][i % 8]}deg)`;
+    t.style.background = TAPES[i % TAPES.length];
+    sec.appendChild(t);
+  });
 })();
