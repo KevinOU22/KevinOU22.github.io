@@ -998,3 +998,7 @@ kbd { font-family: var(--f-data); font-size: .75em; border: 1px solid currentCol
 @media (prefers-reduced-motion: reduce) {
   .reveal-on .spread:not(.is-in) :is(.scrap, .print, .polaroid, .booklet, .badge, .railticket, .ribbon, .receipt, .rank, .sign) { translate: none; rotate: none; scale: none; }
 }
+
+/* ripped paper seam between station bands */
+.spread + .spread::after { content: ""; position: absolute; top: -15px; left: 50%; width: 100vw; margin-left: -50vw; height: 30px; z-index: -1; background: url("img/rip.svg") 0 0 / 600px 30px repeat-x; filter: drop-shadow(0 3px 3px rgba(5, 8, 25, .45)); pointer-events: none; }
+.colophon::after { content: ""; position: absolute; top: -15px; left: 50%; width: 100vw; margin-left: -50vw; height: 30px; z-index: -1; background: url("img/rip.svg") 0 0 / 600px 30px repeat-x; filter: drop-shadow(0 3px 3px rgba(5, 8, 25, .45)); }
