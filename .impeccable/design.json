@@ -386,7 +386,7 @@
       {
         "name": "trail-life",
         "value": "650ms",
-        "purpose": "Fade life of the rail-line cursor trail (mouse and pen only)."
+        "purpose": "Fade life of the marker-ribbon cursor trail (mouse and pen only); now 420ms."
       },
       {
         "name": "click-mark",
@@ -511,7 +511,7 @@
       "Washi tape strips in yellow stripe, blue diagonal, and coral dot, at a slight rotation, on top of everything they hold.",
       "A 12-column spread grid that pieces deliberately break with negative margins and rotation.",
       "Eki red reserved for interaction; indigo and green as station inks.",
-      "A rail-line cursor trail with sleepers, plus click-stamp impressions, both off under reduced motion."
+      "A tapered marker-ribbon cursor trail that sheds die-cut sticker scraps (stars, hearts, ticket stubs, dots), plus click-stamp impressions with a sticker burst, all off under reduced motion."
     ],
     "rules": [
       {

@@ -309,12 +309,15 @@
     if (s && music.top < innerHeight && music.bottom > 0) hit(s);
   });
 
-  /* ── cursor trail: a rail line that fades ───────── */
+  /* ── cursor trail: marker ribbon + falling stickers ─ */
   const trail = $(".trail");
   const tctx = trail.getContext("2d");
   let dpr = 1, W = 0, H = 0;
-  const pts = [];
-  const marks = [];
+  const pts = [];      // ribbon spine (eased head positions)
+  const bits = [];     // sticker scraps
+  const marks = [];    // click stamps
+  const STICKER_COLORS = ["#ffe066", "#bfe6d3", "#f7cfc6", "#2546a8", "#f2a900", "#ffffff"];
+  const SHAPES = ["star", "heart", "dot", "ticket", "star", "heart"];
   function size() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = innerWidth; H = innerHeight;
@@ -326,55 +329,114 @@
 
   let raf = 0;
   const kick = () => { if (!raf) raf = requestAnimationFrame(draw); };
-  const LIFE = 650;
+  const LIFE = 420;
+  let mx = -99, my = -99, hx = -99, hy = -99, live = false, travel = 0;
+
+  function spawn(x, y, n, spread) {
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * Math.PI * 2, v = spread * (0.4 + Math.random());
+      bits.push({
+        x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 1.2,
+        r: Math.random() * 6, vr: (Math.random() - .5) * .25,
+        s: 5 + Math.random() * 5, t: performance.now(),
+        shape: SHAPES[(Math.random() * SHAPES.length) | 0],
+        c: Math.random() < .35 ? trailColor : STICKER_COLORS[(Math.random() * STICKER_COLORS.length) | 0]
+      });
+    }
+    if (bits.length > 120) bits.splice(0, bits.length - 120);
+  }
 
   if (!reduceMotion) {
     if (finePointer) {
       window.addEventListener("pointermove", (e) => {
         if (e.pointerType !== "mouse" && e.pointerType !== "pen") return;
-        pts.push({ x: e.clientX, y: e.clientY, t: performance.now() });
-        if (pts.length > 80) pts.shift();
+        if (!live) { hx = mx = e.clientX; hy = my = e.clientY; live = true; }
+        travel += Math.hypot(e.clientX - mx, e.clientY - my);
+        mx = e.clientX; my = e.clientY;
+        if (travel > 90) { travel = 0; spawn(mx, my, 1, 1.4); }
         kick();
       }, { passive: true });
+      document.addEventListener("pointerleave", () => { live = false; });
     }
     window.addEventListener("pointerdown", (e) => {
       if (e.target.closest("a, button, [data-drag], input")) return;
       marks.push({ x: e.clientX, y: e.clientY, t: performance.now(), r: Math.random() * 0.8 - 0.4, c: trailColor });
+      spawn(e.clientX, e.clientY, 7, 3.2);
       kick();
     }, { passive: true });
+  }
+
+  function shape(c, b, size) {
+    c.beginPath();
+    if (b.shape === "star") {
+      for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rad = i % 2 ? size * .45 : size; c.lineTo(Math.cos(a) * rad, Math.sin(a) * rad); }
+      c.closePath();
+    } else if (b.shape === "heart") {
+      const k = size / 8;
+      c.moveTo(0, 6 * k); c.bezierCurveTo(-9 * k, 0, -5 * k, -8 * k, 0, -3 * k); c.bezierCurveTo(5 * k, -8 * k, 9 * k, 0, 0, 6 * k);
+    } else if (b.shape === "ticket") {
+      c.rect(-size, -size * .6, size * 2, size * 1.2);
+    } else {
+      c.arc(0, 0, size * .7, 0, Math.PI * 2);
+    }
   }
 
   function draw(now) {
     raf = 0;
     tctx.clearRect(0, 0, W, H);
-    while (pts.length && now - pts[0].t > LIFE) pts.shift();
-    if (pts.length > 1) {
-      tctx.lineCap = "round"; tctx.lineJoin = "round";
-      // rails
-      for (let i = 1; i < pts.length; i++) {
-        const a = pts[i - 1], b = pts[i];
-        const life = 1 - (now - b.t) / LIFE;
-        tctx.strokeStyle = trailColor;
-        tctx.globalAlpha = Math.max(0, life) * .9;
-        tctx.lineWidth = 1 + life * 2.5;
-        tctx.beginPath(); tctx.moveTo(a.x, a.y); tctx.lineTo(b.x, b.y); tctx.stroke();
-      }
-      // sleepers every ~11px
-      let acc = 0;
-      for (let i = 1; i < pts.length; i++) {
-        const a = pts[i - 1], b = pts[i];
-        const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy);
-        if (!len) continue;
-        acc += len;
-        if (acc < 11) continue;
-        acc = 0;
-        const life = 1 - (now - b.t) / LIFE;
-        const nx = -dy / len, ny = dx / len, s = 3 + life * 4;
-        tctx.globalAlpha = Math.max(0, life) * .8;
-        tctx.lineWidth = 2;
-        tctx.beginPath(); tctx.moveTo(b.x - nx * s, b.y - ny * s); tctx.lineTo(b.x + nx * s, b.y + ny * s); tctx.stroke();
-      }
+
+    // ease the pen head toward the pointer for a silky line
+    if (live) {
+      hx += (mx - hx) * .42; hy += (my - hy) * .42;
+      const last = pts[pts.length - 1];
+      if (!last || Math.hypot(hx - last.x, hy - last.y) > 1.2) pts.push({ x: hx, y: hy, t: now });
     }
+    while (pts.length && now - pts[0].t > LIFE) pts.shift();
+    if (pts.length > 60) pts.splice(0, pts.length - 60);
+
+    // tapered marker ribbon
+    const n = pts.length;
+    if (n > 2) {
+      const left = [], right = [];
+      for (let i = 0; i < n; i++) {
+        const p = pts[i], q = pts[Math.min(i + 1, n - 1)], o = pts[Math.max(i - 1, 0)];
+        let dx = q.x - o.x, dy = q.y - o.y; const len = Math.hypot(dx, dy) || 1; dx /= len; dy /= len;
+        const age = 1 - (now - p.t) / LIFE;
+        const w = 0.4 + 5.5 * Math.pow(i / (n - 1), 0.9) * Math.max(0, age);
+        left.push([p.x - dy * w, p.y + dx * w]); right.push([p.x + dy * w, p.y - dx * w]);
+      }
+      tctx.beginPath();
+      tctx.moveTo(left[0][0], left[0][1]);
+      for (let i = 1; i < n; i++) tctx.lineTo(left[i][0], left[i][1]);
+      for (let i = n - 1; i >= 0; i--) tctx.lineTo(right[i][0], right[i][1]);
+      tctx.closePath();
+      tctx.globalAlpha = .88; tctx.fillStyle = trailColor; tctx.fill();
+      // paper-white highlight down the spine
+      tctx.globalAlpha = .35; tctx.strokeStyle = "#fff"; tctx.lineWidth = 1.2; tctx.lineCap = "round";
+      tctx.beginPath(); tctx.moveTo(pts[Math.floor(n * .55)].x, pts[Math.floor(n * .55)].y);
+      for (let i = Math.floor(n * .55) + 1; i < n; i++) tctx.lineTo(pts[i].x, pts[i].y);
+      tctx.stroke();
+      // nib
+      tctx.globalAlpha = .95; tctx.fillStyle = trailColor;
+      tctx.beginPath(); tctx.arc(pts[n - 1].x, pts[n - 1].y, 3.2, 0, Math.PI * 2); tctx.fill();
+    }
+
+    // falling stickers (white die-cut border, flat colour)
+    for (let i = bits.length - 1; i >= 0; i--) {
+      const b = bits[i], age = now - b.t;
+      if (age > 1300) { bits.splice(i, 1); continue; }
+      b.vy += .11; b.vx *= .985; b.x += b.vx; b.y += b.vy; b.r += b.vr;
+      const pop = age < 120 ? age / 120 : 1;
+      const size = b.s * (pop < 1 ? .6 + pop * .5 : 1) * (1 - Math.max(0, age - 900) / 400 * .6);
+      tctx.save(); tctx.translate(b.x, b.y); tctx.rotate(b.r);
+      tctx.globalAlpha = Math.min(1, (1300 - age) / 300);
+      shape(tctx, b, size); tctx.lineJoin = "round";
+      tctx.lineWidth = 3; tctx.strokeStyle = "#fff"; tctx.stroke();
+      tctx.fillStyle = b.c; tctx.fill();
+      tctx.lineWidth = .8; tctx.strokeStyle = "rgba(23,22,26,.35)"; tctx.stroke();
+      tctx.restore();
+    }
+
     // click stamps
     for (let i = marks.length - 1; i >= 0; i--) {
       const m = marks[i], age = now - m.t;
@@ -389,19 +451,41 @@
       tctx.beginPath(); tctx.arc(0, 0, 17, 0, Math.PI * 2); tctx.stroke();
       tctx.lineWidth = 1;
       tctx.beginPath(); tctx.arc(0, 0, 12, 0, Math.PI * 2); tctx.stroke();
-      star(tctx, 0, 0, 7, 3);
+      shape(tctx, { shape: "star" }, 7); tctx.fill();
       tctx.restore();
     }
     tctx.globalAlpha = 1;
-    if (pts.length > 1 || marks.length) kick();
+    const moving = live && Math.hypot(mx - hx, my - hy) > .5;
+    if (pts.length > 1 || bits.length || marks.length || moving) kick();
   }
-  function star(c, x, y, R, r) {
-    c.beginPath();
-    for (let i = 0; i < 10; i++) {
-      const a = -Math.PI / 2 + i * Math.PI / 5, rad = i % 2 ? r : R;
-      c.lineTo(x + Math.cos(a) * rad, y + Math.sin(a) * rad);
-    }
-    c.closePath(); c.fill();
+
+  /* ── Eco Wrap booklet ───────────────────────────── */
+  const booklet = $(".booklet");
+  if (booklet) {
+    const img = $(".booklet__page", booklet), num = $("[data-page]", booklet);
+    const prev = $('[data-dir="-1"]', booklet), next = $('[data-dir="1"]', booklet);
+    const TOTAL = 22; let page = 1;
+    const src = (n) => `assets/plan/p${String(n).padStart(2, "0")}.jpg`;
+    const go = (d) => {
+      const n = Math.min(TOTAL, Math.max(1, page + d));
+      if (n === page) return;
+      page = n;
+      img.classList.add("is-turning");
+      setTimeout(() => {
+        img.src = src(page); img.alt = `Eco Wrap business plan, page ${page} of ${TOTAL}`;
+        img.onload = () => img.classList.remove("is-turning");
+      }, reduceMotion ? 0 : 160);
+      num.textContent = page; prev.disabled = page === 1; next.disabled = page === TOTAL;
+      if (page < TOTAL) { const pre = new Image(); pre.src = src(page + 1); }
+    };
+    prev.disabled = true;
+    prev.addEventListener("click", () => go(-1));
+    next.addEventListener("click", () => go(1));
+    $(".booklet__stage", booklet).addEventListener("click", (e) => {
+      const r = e.currentTarget.getBoundingClientRect();
+      go(e.clientX - r.left < r.width / 3 ? -1 : 1);
+    });
+    booklet.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1); });
   }
 
   /* ── rally complete: paper confetti ─────────────── */

@@ -772,3 +772,25 @@ kbd { font-family: var(--f-data); font-size: .75em; border: 1px solid currentCol
 .sash { background: var(--green); margin-left: -20%; overflow: visible; }
 .sash small { color: #e4f5ec; }
 @media (max-width: 960px) { .sash { margin-left: 0; } }
+
+/* Eco Wrap booklet */
+.booklet { grid-column: 8 / span 5; grid-row: 3; margin: 30px 0 0 4%; z-index: 2; background: #fff; padding: 14px 14px 10px; box-shadow: var(--shadow-paper); max-width: 560px; }
+.booklet__stage { position: relative; aspect-ratio: 760 / 1013; overflow: hidden; background: #eef0ea; cursor: pointer; }
+.booklet__page { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s var(--ease-out), opacity .3s; transform-origin: left center; }
+.booklet__page.is-turning { opacity: 0; transform: perspective(1400px) rotateY(-18deg) translateX(-8px); }
+.booklet__bar { display: flex; align-items: center; gap: 12px; padding-top: 10px; font-family: var(--f-data); font-weight: 700; }
+.booklet__count { font-variant-numeric: tabular-nums; min-width: 5.5ch; text-align: center; }
+.booklet__count b { color: var(--red-deep); }
+.booklet__btn { width: 44px; height: 36px; border: 2px solid var(--ink); border-radius: 18px; background: #fff; cursor: pointer; display: grid; place-items: center; transition: transform .2s var(--ease-out), border-color .2s; }
+.booklet__btn svg { width: 24px; height: 12px; }
+.booklet__btn[data-dir="-1"] svg { transform: scaleX(-1); }
+.booklet__btn:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+.booklet__btn:disabled { opacity: .3; cursor: default; transform: none; border-color: var(--ink); color: var(--ink); }
+.booklet__pdf { margin-left: auto; font-family: var(--f-hand); font-size: 1.2rem; font-weight: 400; color: var(--red-deep); }
+.plan__quote { font-family: var(--f-display); font-size: 1.05rem; color: #15693f; }
+.plan__by { font-family: var(--f-data); font-size: .8rem; font-weight: 700; color: var(--ink-soft); }
+@media (max-width: 960px) { .booklet { grid-column: 1 / -1; grid-row: 5; margin: 26px 0 0; } }
+@media (max-width: 640px) { .booklet__pdf { flex-basis: 100%; margin: 4px 0 0; } .booklet__bar { flex-wrap: wrap; } }
+.booklet__bar { flex-wrap: wrap; }
+.booklet__count { white-space: nowrap; }
+.booklet__pdf { flex-basis: 100%; margin: 2px 0 0; }

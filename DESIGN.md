@@ -160,7 +160,7 @@ The system is dense and handmade but disciplined. Paper colours carry the world,
 - Washi tape strips in yellow stripe, blue diagonal, and coral dot, at a slight rotation, on top of everything they hold.
 - A 12-column spread grid that pieces deliberately break with negative margins and rotation.
 - Eki red reserved for interaction; indigo and green as station inks.
-- A rail-line cursor trail with sleepers, plus click-stamp impressions, both off under reduced motion.
+- A tapered marker-ribbon cursor trail that sheds die-cut sticker scraps (stars, hearts, ticket stubs, dots), plus click-stamp impressions with a sticker burst, all off under reduced motion.
 
 ## Colors
 
@@ -264,7 +264,7 @@ Notes are flat colour stock (yellow, pink, mint) with grain. Ribbons are circula
 The build has no form fields. Interactive toys stand in for controls: drum pads (circular, ink border, red on hover, scale .9 and -4deg on hit), crayons (rise 8px on hover and 16px when selected, and they set the trail colour), placards (0.8s Y-axis flip, peeking -8deg on hover), and rail tickets (a punch hole scales in when pressed).
 
 ### Motion grammar
-Easing is a single curve, `cubic-bezier(.16, 1, .3, 1)`. Durations run 0.12s for pad hits, 0.25 to 0.3s for hover feedback, 0.5 to 0.6s for slides, drops, and the stamp press, and 0.8s for the placard flip. The cursor trail is a 650ms fading rail line with sleepers every 11px, in the chosen crayon colour. It draws only for a mouse or pen. A click on bare paper leaves a 1.4s ring-and-star impression. Under `prefers-reduced-motion`, the trail, click stamps, confetti, and smooth scroll are off, and transitions collapse to 0.01ms.
+Easing is a single curve, `cubic-bezier(.16, 1, .3, 1)`. Durations run 0.12s for pad hits, 0.25 to 0.3s for hover feedback, 0.5 to 0.6s for slides, drops, and the stamp press, and 0.8s for the placard flip. The cursor trail is a 420ms tapered marker ribbon in the chosen crayon colour, drawn from an eased pen head (lerp .42 per frame) with a paper-white spine highlight. Every 90px of travel it sheds one die-cut sticker (white border, flat fill) that falls under gravity for 1.3s. It draws only for a mouse or pen. A click on bare paper leaves a 1.4s ring-and-star impression plus a seven-sticker burst. The Eco Wrap booklet turns pages with a .45s perspective swing. Under `prefers-reduced-motion`, the trail, click stamps, confetti, and smooth scroll are off, and transitions collapse to 0.01ms.
 
 ## Do's and Don'ts
 

@@ -73,7 +73,7 @@ Honors:
 Activities:
 
 - **DECA**:
-  - Eco Wrap, a sugarcane-bagasse packaging concept with a 20-page business plan written by a team of three
+  - Eco Wrap, a sugarcane-bagasse packaging concept. Its International Business Plan (22-page PDF, April 2026) was written with Michael Qi and Zixuan Wang. The full PDF and page images ship at assets/plan/.
   - Solviva, solar pay-per-crate cold storage for farmers in Bangladesh
 - **Model UN**:
   - Co-President since 2026 and a delegate since 2024
