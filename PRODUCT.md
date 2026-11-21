@@ -103,7 +103,7 @@ Extras the user approved:
 
 - Coding projects:
   - Vibe Theater: a Mac notch overlay app in Swift/SwiftUI
-  - Pulse: a live activity panel for Claude Code in TypeScript
+  - Pulse Island: a live activity panel for Claude Code in TypeScript, open source at github.com/KevinOU22/pulse-island
   - study-map-skill: public on GitHub, turns a study guide into an interactive study app
 - Photography: the Photographic Design Studio Honors class, the Behold Project, and a Scholastic Art & Writing entry in progress
 
