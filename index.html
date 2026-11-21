@@ -12,17 +12,27 @@
 <meta property="og:description" content="A junk journal and stamp rally of everything I'm up to. Collect all nine stamps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kevinou22.github.io/">
+<meta property="og:image" content="https://kevinou22.github.io/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kevin Ou's junk-journal site: his name on taped grid paper beside a photo of him with a camera">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kevin Ou">
+<meta name="twitter:description" content="A junk journal and stamp rally of everything I'm up to.">
+<meta name="twitter:image" content="https://kevinou22.github.io/og-card.jpg">
+<meta name="author" content="Kevin Ou">
+<link rel="canonical" href="https://kevinou22.github.io/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kevin Ou","url":"https://kevinou22.github.io/","image":"https://kevinou22.github.io/assets/photos/headshot.jpg","affiliation":{"@type":"EducationalOrganization","name":"Valley Christian High School"},"address":{"@type":"PostalAddress","addressLocality":"Santa Clara","addressRegion":"CA"},"sameAs":["https://www.linkedin.com/in/kevin-o-841841398","https://github.com/KevinOU22","https://www.instagram.com/iamkevin22_/"]}</script>
 <link rel="icon" href="icon-ko.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="icon-32.png?v=3" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="preload" href="assets/fonts/dela-gothic-one-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css?v=7">
-<link rel="stylesheet" href="assets/style.css?v=7">
+<link rel="stylesheet" href="assets/style.css?v=8">
 </head>
 <body>
 <a class="skip" href="#hello">Skip to the journal</a>
 
-<!-- shared SVG: ink texture filter + stamp icons -->
 <svg width="0" height="0" class="defs" aria-hidden="true" focusable="false">
   <defs>
     <filter id="sticker" x="-15%" y="-15%" width="130%" height="135%" color-interpolation-filters="sRGB">
@@ -56,7 +66,6 @@
   </defs>
 </svg>
 
-<!-- rail route: the station navigation -->
 <nav class="route" aria-label="Stations">
   <a class="route__logo" href="#hello" aria-label="Kevin Ou, back to the top"><span class="logo-ko" aria-hidden="true">KO</span><span class="route__logo-name">Kevin Ou</span></a>
   <div class="route__track">
@@ -77,29 +86,26 @@
   </div>
 </nav>
 
-<!-- journal edges on wide screens: binding on the left, index tabs on the right -->
 <div class="spine" aria-hidden="true"></div>
 <div class="pageblock" aria-hidden="true"><span class="pageblock__ribbon"></span><span class="pageblock__tape pageblock__tape--a"></span><span class="pageblock__tape pageblock__tape--b"></span><span class="pageblock__clip"></span></div>
 
-<!-- stamp rally card -->
 <aside class="rally" aria-label="Stamp rally progress">
   <button class="rally__head" type="button" aria-expanded="false" aria-controls="rally-rings">
     <span class="rally__title">Stamp rally</span>
     <span class="rally__count"><b data-count>0</b>/9</span>
   </button>
   <ol class="rally__rings" id="rally-rings"></ol>
-  <p class="rally__done" hidden>Rally complete! You've met all of me. <button type="button" class="rally__reset">Start over</button></p>
+  <p class="rally__done" hidden>Rally complete. You've met all of me. <button type="button" class="rally__reset">Start over</button></p>
 </aside>
 
 <main class="journal">
 
-  <!-- HELLO -->
   <section class="spread spread--hello" id="hello" data-station="hello" data-color="red" data-icon="i-hello" aria-labelledby="h-hello">
     <div class="sheet sheet--grid hello__page">
       <span class="washi washi--yellow" style="--r:-4deg; --x:8%;"></span>
       <span class="washi washi--blue" style="--r:6deg; --x:72%;"></span>
       <h1 class="hello__name" id="h-hello"><span>Kevin</span> <span>Ou</span></h1>
-      <p class="hello__intro">Hi! I compete in business with DECA, run a Model UN club, play percussion, take photos, and build little apps. This journal is where I keep all of it.</p>
+      <p class="hello__intro">Hey, I compete in business with DECA, run a Model UN club, play percussion, take photos, and build little apps. This journal is where I keep all of it.</p>
       <p class="hand hello__tip">press the stamp at every station to collect it <svg class="hand__arrow"><use href="#i-arrow"/></svg></p>
       <div class="stampspot hello__stamp"></div>
     </div>
@@ -128,7 +134,7 @@
         <li>AP Physics 1</li>
         <li>Photographic Design Studio Honors</li>
       </ul>
-      <p class="hand ledger__note">already done: AP World <b>4</b> · AP Precalc <b>4</b> (self-studied!)</p>
+      <p class="hand ledger__note">already done: AP World <b>4</b> · AP Precalc <b>4</b> (self-studied)</p>
     </div>
 
     <span class="scrap sticker sticker--zh" data-drag style="--r:-8deg"><span lang="zh">我会说中文</span><small>fluent in Mandarin</small></span>
@@ -145,7 +151,6 @@
 
   </section>
 
-  <!-- DECA -->
   <section class="spread spread--deca" id="deca" data-station="deca" data-color="green" data-icon="i-deca" aria-labelledby="h-deca">
     <header class="sign">
       <h2 class="sign__name" id="h-deca">DECA</h2>
@@ -194,7 +199,6 @@
 
   </section>
 
-  <!-- MODEL UN -->
   <section class="spread spread--mun" id="mun" data-station="mun" data-color="indigo" data-icon="i-mun" aria-labelledby="h-mun">
     <header class="sign">
       <h2 class="sign__name" id="h-mun">Model UN</h2>
@@ -223,7 +227,6 @@
 
   </section>
 
-  <!-- MUSIC -->
   <section class="spread spread--music" id="music" data-station="music" data-color="red" data-icon="i-music" aria-labelledby="h-music">
     <header class="sign">
       <h2 class="sign__name" id="h-music">Music</h2>
@@ -298,7 +301,6 @@
 
   </section>
 
-  <!-- SCOUTS -->
   <section class="spread spread--scouts" id="scouts" data-station="scouts" data-color="green" data-icon="i-scouts" aria-labelledby="h-scouts">
     <header class="sign">
       <h2 class="sign__name" id="h-scouts">Scouts</h2>
@@ -325,7 +327,6 @@
 
   </section>
 
-  <!-- COURT & CANVAS -->
   <section class="spread spread--court" id="court" data-station="court" data-color="indigo" data-icon="i-court" aria-labelledby="h-court">
     <header class="sign">
       <h2 class="sign__name" id="h-court">Court &amp; Canvas</h2>
@@ -357,7 +358,6 @@
 
   </section>
 
-  <!-- CODE -->
   <section class="spread spread--code" id="code" data-station="code" data-color="red" data-icon="i-code" aria-labelledby="h-code">
     <header class="sign">
       <h2 class="sign__name" id="h-code">Code</h2>
@@ -400,7 +400,6 @@
 
   </section>
 
-  <!-- PHOTOS -->
   <section class="spread spread--photos" id="photos" data-station="photos" data-color="indigo" data-icon="i-photo" aria-labelledby="h-photos">
     <header class="sign">
       <h2 class="sign__name" id="h-photos">Photos</h2>
@@ -412,14 +411,13 @@
 
     <div class="prints sheet sheet--kraft">
       <figure class="scrap print" data-drag style="--r:-4deg"><img class="print__img photo" src="assets/photos/behold-cranes.jpg" width="768" height="1024" alt="Grey paper cranes hanging at different depths, the far ones blurred into soft light" loading="lazy" draggable="false" style="--pos: 50% 40%"><figcaption class="hand">Behold project</figcaption></figure>
-      <figure class="scrap print print--wide" data-drag style="--r:3deg"><img class="print__img photo" src="assets/photos/scholastic-lake.jpg" width="1086" height="724" alt="A wooden dock on a still lake at dusk, pink clouds over dark mountains with snow on the far peaks" loading="lazy" draggable="false" style="--pos: 50% 50%"><figcaption class="hand">Scholastic pick?</figcaption></figure>
+      <figure class="scrap print print--wide" data-drag style="--r:3deg"><img class="print__img photo" src="assets/photos/scholastic-lake.jpg" width="1086" height="724" alt="A wooden dock on a still lake at dusk, pink clouds over dark mountains with snow on the far peaks" loading="lazy" draggable="false" style="--pos: 50% 50%"><figcaption class="hand">for Scholastic</figcaption></figure>
       <figure class="scrap print" data-drag style="--r:-1deg"><img class="print__img photo" src="assets/photos/japan-shinkansen.jpg" width="1161" height="1400" alt="A shinkansen nose waiting at an elevated platform under steel canopy beams and overhead wires" loading="lazy" draggable="false" style="--pos: 55% 62%"><figcaption class="hand">Japan, summer 2026</figcaption></figure>
       <figure class="scrap print print--tall" data-drag style="--r:5deg"><img class="print__img photo" src="assets/photos/studio-columns.jpg" width="768" height="1024" alt="Kevin leaning against a stone column in a long colonnade, looking up, a Canon camera hanging from his hand" loading="lazy" draggable="false" style="--pos: 50% 50%"><figcaption class="hand">on a photo shoot</figcaption></figure>
     </div>
 
   </section>
 
-  <!-- FIND ME -->
   <section class="spread spread--findme" id="findme" data-station="findme" data-color="red" data-icon="i-post" aria-labelledby="h-findme">
     <header class="sign">
       <h2 class="sign__name" id="h-findme">Find me</h2>
@@ -432,7 +430,7 @@
           <img class="photo" src="assets/photos/headshot.jpg" width="724" height="1086" alt="Headshot of Kevin in a navy suit and striped tie, smiling, with pink stadium lights behind him" loading="lazy" style="--pos: 50% 22%">
           <figcaption class="hand">the formal version</figcaption>
         </figure>
-        <p class="hand postcard__write">Thanks for flipping through my journal! Say hi anywhere below. I'm always up for talking business, MUN, music, or whatever you're building.</p>
+        <p class="hand postcard__write">Thanks for flipping through my journal. Say hi anywhere below. I'm always up for talking business, MUN, music, or whatever you're building.</p>
         <p class="hand postcard__sign">Kevin</p>
       </div>
       <div class="postcard__addr">
@@ -451,7 +449,7 @@
   </section>
 
   <footer class="colophon">
-    <p>Kevin Ou · Santa Clara, CA · <span class="num">2026</span></p>
+    <p>Kevin Ou · Santa Clara, CA · <span class="num" data-year>2026</span></p>
   </footer>
 </main>
 
@@ -459,6 +457,6 @@
 <canvas class="confetti" aria-hidden="true"></canvas>
 <p class="sr" aria-live="polite" data-announce></p>
 
-<script src="assets/main.js?v=7" defer></script>
+<script src="assets/main.js?v=8" defer></script>
 </body>
 </html>
