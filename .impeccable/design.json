@@ -1,0 +1,559 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T05:43:37+00:00",
+  "title": "Design System: Kevin Ou",
+  "extensions": {
+    "colorMeta": {
+      "eki-red": {
+        "role": "primary",
+        "displayName": "Eki Stamp Red",
+        "canonical": "oklch(56.7% 0.209 25)",
+        "tonalRamp": [
+          "oklch(15% 0.042 25)",
+          "oklch(26% 0.134 25)",
+          "oklch(37% 0.209 25)",
+          "oklch(48% 0.209 25)",
+          "oklch(59% 0.209 25)",
+          "oklch(70% 0.209 25)",
+          "oklch(82% 0.150 25)",
+          "oklch(95% 0.042 25)"
+        ]
+      },
+      "eki-red-deep": {
+        "role": "primary",
+        "displayName": "Pressed Red",
+        "canonical": "oklch(47.0% 0.178 26)",
+        "tonalRamp": [
+          "oklch(15% 0.036 26)",
+          "oklch(26% 0.114 26)",
+          "oklch(37% 0.178 26)",
+          "oklch(48% 0.178 26)",
+          "oklch(59% 0.178 26)",
+          "oklch(70% 0.178 26)",
+          "oklch(82% 0.128 26)",
+          "oklch(95% 0.036 26)"
+        ]
+      },
+      "stamp-indigo": {
+        "role": "secondary",
+        "displayName": "Station Indigo",
+        "canonical": "oklch(43.3% 0.162 266)",
+        "tonalRamp": [
+          "oklch(15% 0.032 266)",
+          "oklch(26% 0.104 266)",
+          "oklch(37% 0.162 266)",
+          "oklch(48% 0.162 266)",
+          "oklch(59% 0.162 266)",
+          "oklch(70% 0.162 266)",
+          "oklch(82% 0.117 266)",
+          "oklch(95% 0.032 266)"
+        ]
+      },
+      "stamp-green": {
+        "role": "secondary",
+        "displayName": "Station Green",
+        "canonical": "oklch(56.3% 0.120 158)",
+        "tonalRamp": [
+          "oklch(15% 0.024 158)",
+          "oklch(26% 0.077 158)",
+          "oklch(37% 0.120 158)",
+          "oklch(48% 0.120 158)",
+          "oklch(59% 0.120 158)",
+          "oklch(70% 0.120 158)",
+          "oklch(82% 0.086 158)",
+          "oklch(95% 0.024 158)"
+        ]
+      },
+      "marigold": {
+        "role": "tertiary",
+        "displayName": "Marigold",
+        "canonical": "oklch(78.5% 0.164 78)",
+        "tonalRamp": [
+          "oklch(15% 0.033 78)",
+          "oklch(26% 0.105 78)",
+          "oklch(37% 0.164 78)",
+          "oklch(48% 0.164 78)",
+          "oklch(59% 0.164 78)",
+          "oklch(70% 0.164 78)",
+          "oklch(82% 0.118 78)",
+          "oklch(95% 0.033 78)"
+        ]
+      },
+      "bookcloth": {
+        "role": "neutral",
+        "displayName": "Indigo Bookcloth",
+        "canonical": "oklch(30.6% 0.090 271)",
+        "tonalRamp": [
+          "oklch(15% 0.018 271)",
+          "oklch(26% 0.058 271)",
+          "oklch(37% 0.090 271)",
+          "oklch(48% 0.090 271)",
+          "oklch(59% 0.090 271)",
+          "oklch(70% 0.090 271)",
+          "oklch(82% 0.065 271)",
+          "oklch(95% 0.018 271)"
+        ]
+      },
+      "bookcloth-deep": {
+        "role": "neutral",
+        "displayName": "Deep Bookcloth",
+        "canonical": "oklch(25.2% 0.074 271)",
+        "tonalRamp": [
+          "oklch(15% 0.015 271)",
+          "oklch(26% 0.047 271)",
+          "oklch(37% 0.074 271)",
+          "oklch(48% 0.074 271)",
+          "oklch(59% 0.074 271)",
+          "oklch(70% 0.074 271)",
+          "oklch(82% 0.053 271)",
+          "oklch(95% 0.015 271)"
+        ]
+      },
+      "grid-paper": {
+        "role": "neutral",
+        "displayName": "Grid Paper",
+        "canonical": "oklch(96.0% 0.011 95)",
+        "tonalRamp": [
+          "oklch(15% 0.002 95)",
+          "oklch(26% 0.007 95)",
+          "oklch(37% 0.011 95)",
+          "oklch(48% 0.011 95)",
+          "oklch(59% 0.011 95)",
+          "oklch(70% 0.011 95)",
+          "oklch(82% 0.008 95)",
+          "oklch(95% 0.002 95)"
+        ]
+      },
+      "kraft": {
+        "role": "neutral",
+        "displayName": "Kraft",
+        "canonical": "oklch(72.5% 0.083 70)",
+        "tonalRamp": [
+          "oklch(15% 0.017 70)",
+          "oklch(26% 0.053 70)",
+          "oklch(37% 0.083 70)",
+          "oklch(48% 0.083 70)",
+          "oklch(59% 0.083 70)",
+          "oklch(70% 0.083 70)",
+          "oklch(82% 0.060 70)",
+          "oklch(95% 0.017 70)"
+        ]
+      },
+      "kraft-ink": {
+        "role": "neutral",
+        "displayName": "Kraft Ink",
+        "canonical": "oklch(29.0% 0.043 60)",
+        "tonalRamp": [
+          "oklch(15% 0.009 60)",
+          "oklch(26% 0.028 60)",
+          "oklch(37% 0.043 60)",
+          "oklch(48% 0.043 60)",
+          "oklch(59% 0.043 60)",
+          "oklch(70% 0.043 60)",
+          "oklch(82% 0.031 60)",
+          "oklch(95% 0.009 60)"
+        ]
+      },
+      "rail-mint": {
+        "role": "neutral",
+        "displayName": "Rail Mint",
+        "canonical": "oklch(89.2% 0.048 164)",
+        "tonalRamp": [
+          "oklch(15% 0.010 164)",
+          "oklch(26% 0.031 164)",
+          "oklch(37% 0.048 164)",
+          "oklch(48% 0.048 164)",
+          "oklch(59% 0.048 164)",
+          "oklch(70% 0.048 164)",
+          "oklch(82% 0.035 164)",
+          "oklch(95% 0.010 164)"
+        ]
+      },
+      "rail-mint-deep": {
+        "role": "neutral",
+        "displayName": "Mint Deep",
+        "canonical": "oklch(79.2% 0.075 166)",
+        "tonalRamp": [
+          "oklch(15% 0.015 166)",
+          "oklch(26% 0.048 166)",
+          "oklch(37% 0.075 166)",
+          "oklch(48% 0.075 166)",
+          "oklch(59% 0.075 166)",
+          "oklch(70% 0.075 166)",
+          "oklch(82% 0.054 166)",
+          "oklch(95% 0.015 166)"
+        ]
+      },
+      "ledger-pink": {
+        "role": "neutral",
+        "displayName": "Ledger Pink",
+        "canonical": "oklch(88.6% 0.047 33)",
+        "tonalRamp": [
+          "oklch(15% 0.009 33)",
+          "oklch(26% 0.030 33)",
+          "oklch(37% 0.047 33)",
+          "oklch(48% 0.047 33)",
+          "oklch(59% 0.047 33)",
+          "oklch(70% 0.047 33)",
+          "oklch(82% 0.034 33)",
+          "oklch(95% 0.009 33)"
+        ]
+      },
+      "washi-yellow": {
+        "role": "neutral",
+        "displayName": "Washi Yellow",
+        "canonical": "oklch(91.0% 0.144 95)",
+        "tonalRamp": [
+          "oklch(15% 0.029 95)",
+          "oklch(26% 0.092 95)",
+          "oklch(37% 0.144 95)",
+          "oklch(48% 0.144 95)",
+          "oklch(59% 0.144 95)",
+          "oklch(70% 0.144 95)",
+          "oklch(82% 0.104 95)",
+          "oklch(95% 0.029 95)"
+        ]
+      },
+      "photocopy": {
+        "role": "neutral",
+        "displayName": "Photocopy Grey",
+        "canonical": "oklch(92.4% 0.007 97)",
+        "tonalRamp": [
+          "oklch(15% 0.001 97)",
+          "oklch(26% 0.004 97)",
+          "oklch(37% 0.007 97)",
+          "oklch(48% 0.007 97)",
+          "oklch(59% 0.007 97)",
+          "oklch(70% 0.007 97)",
+          "oklch(82% 0.005 97)",
+          "oklch(95% 0.001 97)"
+        ]
+      },
+      "stamp-cream": {
+        "role": "neutral",
+        "displayName": "Stamp Cream",
+        "canonical": "oklch(99.4% 0.009 94)",
+        "tonalRamp": [
+          "oklch(15% 0.002 94)",
+          "oklch(26% 0.006 94)",
+          "oklch(37% 0.009 94)",
+          "oklch(48% 0.009 94)",
+          "oklch(59% 0.009 94)",
+          "oklch(70% 0.009 94)",
+          "oklch(82% 0.007 94)",
+          "oklch(95% 0.002 94)"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(37% 0.000 90)",
+          "oklch(48% 0.000 90)",
+          "oklch(59% 0.000 90)",
+          "oklch(70% 0.000 90)",
+          "oklch(82% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "ticket-ink": {
+        "role": "neutral",
+        "displayName": "Ticket Ink",
+        "canonical": "oklch(36.7% 0.068 164)",
+        "tonalRamp": [
+          "oklch(15% 0.014 164)",
+          "oklch(26% 0.043 164)",
+          "oklch(37% 0.068 164)",
+          "oklch(48% 0.068 164)",
+          "oklch(59% 0.068 164)",
+          "oklch(70% 0.068 164)",
+          "oklch(82% 0.049 164)",
+          "oklch(95% 0.014 164)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(20.3% 0.008 297)",
+        "tonalRamp": [
+          "oklch(15% 0.002 297)",
+          "oklch(26% 0.005 297)",
+          "oklch(37% 0.008 297)",
+          "oklch(48% 0.008 297)",
+          "oklch(59% 0.008 297)",
+          "oklch(70% 0.008 297)",
+          "oklch(82% 0.006 297)",
+          "oklch(95% 0.002 297)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(35.8% 0.016 296)",
+        "tonalRamp": [
+          "oklch(15% 0.003 296)",
+          "oklch(26% 0.010 296)",
+          "oklch(37% 0.016 296)",
+          "oklch(48% 0.016 296)",
+          "oklch(59% 0.016 296)",
+          "oklch(70% 0.016 296)",
+          "oklch(82% 0.011 296)",
+          "oklch(95% 0.003 296)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name on the cover page only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Station names on eki-mei-hyo signs."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Object names: receipt shop, badge org, rail-ticket cities, pocket tab."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Sheet copy, 62ch max."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Opening paragraph of a sheet."
+      },
+      "hand": {
+        "displayName": "Hand",
+        "purpose": "Margin notes, hints, captions, postcard message."
+      },
+      "label": {
+        "displayName": "Label / Data",
+        "purpose": "Route stations, ticket fields, sign subtitles, receipt lines, dates; tabular numerals."
+      }
+    },
+    "shadows": [
+      {
+        "name": "paper",
+        "value": "0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45)",
+        "purpose": "Every resting sheet, note, ticket, stamp face, and badge."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 2px rgba(10,12,30,.15), 0 18px 30px -8px rgba(10,12,30,.45), 0 40px 60px -24px rgba(10,12,30,.5)",
+        "purpose": "Grabbed scraps, hovered rail tickets, and the always-raised rally card and postcard."
+      },
+      {
+        "name": "route",
+        "value": "0 6px 18px -8px rgba(5,10,30,.6)",
+        "purpose": "The fixed route strip over the page."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "The only easing curve in the build."
+      },
+      {
+        "name": "hit",
+        "value": "120ms",
+        "purpose": "Drum-pad hit squash."
+      },
+      {
+        "name": "hover",
+        "value": "250ms-300ms",
+        "purpose": "Hover feedback on dots, rings, stamps, crayons."
+      },
+      {
+        "name": "slide",
+        "value": "500ms-600ms",
+        "purpose": "Scrap drop, pocket slide-out, receipt print, stamp press."
+      },
+      {
+        "name": "flip",
+        "value": "800ms",
+        "purpose": "Placard Y-axis flip."
+      },
+      {
+        "name": "stamp-press",
+        "value": "press 600ms: scale 1.55/opacity 0 -> 0.94 at 35% -> 1/0.92",
+        "purpose": "Ink impression when a station stamp is pressed."
+      },
+      {
+        "name": "trail-life",
+        "value": "650ms",
+        "purpose": "Fade life of the rail-line cursor trail (mouse and pen only)."
+      },
+      {
+        "name": "click-mark",
+        "value": "1400ms",
+        "purpose": "Ring-and-star impression left by a click on bare paper."
+      },
+      {
+        "name": "confetti",
+        "value": "2600ms",
+        "purpose": "Paper confetti when the rally completes."
+      },
+      {
+        "name": "drag-snap",
+        "value": "8px",
+        "purpose": "Module dropped scraps snap to."
+      },
+      {
+        "name": "focus-dim",
+        "value": "saturate(.5) brightness(.82)",
+        "purpose": "Filter on the rest of a spread while a scrap is held."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "960px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Eki Stamp",
+      "kind": "custom",
+      "refersTo": "eki-stamp",
+      "description": "Press-to-collect station stamp; ghost disc at rest, ink impression once pressed.",
+      "html": "<div class=\"ds-stage\"><button class=\"ds-stamp\" type=\"button\" aria-label=\"Collect the stamp\"><span class=\"ds-stamp__ghost\">press</span><svg class=\"ds-stamp__ink\" viewBox=\"0 0 128 128\" aria-hidden=\"true\"><circle cx=\"64\" cy=\"64\" r=\"60\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\"/><circle cx=\"64\" cy=\"64\" r=\"36\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"64\" y=\"70\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\" font-family=\"Dela Gothic One, Arial Black, sans-serif\">HELLO</text><text x=\"64\" y=\"94\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"700\" fill=\"currentColor\" font-family=\"Courier Prime, monospace\">2026</text></svg></button><button class=\"ds-stamp is-stamped\" type=\"button\" aria-label=\"Stamp collected\" style=\"--c:#2546a8\"><span class=\"ds-stamp__ghost\">press</span><svg class=\"ds-stamp__ink\" viewBox=\"0 0 128 128\" aria-hidden=\"true\"><circle cx=\"64\" cy=\"64\" r=\"60\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\"/><circle cx=\"64\" cy=\"64\" r=\"36\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"64\" y=\"70\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\" font-family=\"Dela Gothic One, Arial Black, sans-serif\">MUN</text><text x=\"64\" y=\"94\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"700\" fill=\"currentColor\" font-family=\"Courier Prime, monospace\">2026</text></svg></button></div>",
+      "css": ".ds-stage { display:flex; gap:24px; padding:24px; background:#1f2a5c; } .ds-stamp { --c:#d6262f; position:relative; width:128px; height:128px; padding:0; border:0; background:none; cursor:pointer; display:grid; place-items:center; } .ds-stamp__ghost { position:absolute; inset:0; border-radius:50%; border:2.5px dashed color-mix(in srgb, var(--c) 55%, transparent); outline:2px solid color-mix(in srgb, var(--c) 35%, transparent); outline-offset:-12px; background:#fffdf6; display:grid; place-items:center; font-family:Gaegu, 'Comic Sans MS', cursive; font-size:1.05rem; color:color-mix(in srgb, var(--c) 80%, #000); box-shadow:0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); transition:transform .3s cubic-bezier(.16,1,.3,1); } .ds-stamp:hover .ds-stamp__ghost { transform:scale(1.06) rotate(-4deg); } .ds-stamp:active .ds-stamp__ghost { transform:scale(.94); } .ds-stamp:focus-visible { outline:3px dashed #d6262f; outline-offset:4px; border-radius:50%; } .ds-stamp__ink { position:absolute; inset:0; width:100%; height:100%; color:var(--c); opacity:0; transform:rotate(-8deg); pointer-events:none; } .ds-stamp.is-stamped .ds-stamp__ghost { opacity:0; } .ds-stamp.is-stamped .ds-stamp__ink { opacity:.92; animation:ds-press .6s cubic-bezier(.16,1,.3,1) both; } .ds-stamp.is-stamped { cursor:default; } @keyframes ds-press { 0% { opacity:0; transform:scale(1.55) rotate(-8deg); } 35% { opacity:1; transform:scale(.94) rotate(-8deg); } 100% { opacity:.92; transform:scale(1) rotate(-8deg); } } @media (prefers-reduced-motion: reduce) { .ds-stamp * { transition:none !important; animation:none !important; } }"
+    },
+    {
+      "name": "Route Strip",
+      "kind": "nav",
+      "refersTo": "route-bar",
+      "description": "Fixed rail-line navigation; green rail through station dots, red marks where you are.",
+      "html": "<nav class=\"ds-route\" aria-label=\"Stations\"><ol class=\"ds-route__line\"><li><a href=\"#\" class=\"is-stamped\"><span class=\"ds-route__dot\"></span><span>Hello</span></a></li><li><a href=\"#\" class=\"is-here\" aria-current=\"true\"><span class=\"ds-route__dot\"></span><span>DECA</span></a></li><li><a href=\"#\"><span class=\"ds-route__dot\"></span><span>Model UN</span></a></li><li><a href=\"#\"><span class=\"ds-route__dot\"></span><span>Music</span></a></li></ol></nav>",
+      "css": ".ds-route { height:58px; background:#bfe6d3 repeating-linear-gradient(135deg, rgba(255,255,255,.35) 0 2px, transparent 2px 7px); box-shadow:0 6px 18px -8px rgba(5,10,30,.6); -webkit-mask: linear-gradient(#000,#000) top / 100% calc(100% - 10px) no-repeat, radial-gradient(circle 6px at 6px 100%, transparent 98%, #000) bottom / 12px 10px repeat-x; mask: linear-gradient(#000,#000) top / 100% calc(100% - 10px) no-repeat, radial-gradient(circle 6px at 6px 100%, transparent 98%, #000) bottom / 12px 10px repeat-x; } .ds-route__line { list-style:none; margin:0; padding:0 24px 6px; height:100%; display:flex; align-items:center; justify-content:space-between; position:relative; } .ds-route__line::before { content:''; position:absolute; left:24px; right:24px; top:50%; margin-top:-9px; height:4px; background:#1f8a5a; border-radius:2px; } .ds-route__line li { position:relative; } .ds-route a { display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 8px; text-decoration:none; font-family:'Courier Prime', monospace; font-weight:700; font-size:.75rem; letter-spacing:.04em; text-transform:uppercase; color:#134a35; white-space:nowrap; } .ds-route__dot { width:16px; height:16px; border-radius:50%; background:#fff; border:3px solid #1f8a5a; transition:transform .3s cubic-bezier(.16,1,.3,1), background-color .3s, border-color .3s; } .ds-route a:hover .ds-route__dot { transform:scale(1.25); border-color:#d6262f; } .ds-route a:focus-visible { outline:3px dashed #d6262f; outline-offset:2px; border-radius:4px; } .ds-route a.is-stamped .ds-route__dot { background:#1f8a5a; } .ds-route a.is-here { color:#17161a; } .ds-route a.is-here .ds-route__dot { background:#d6262f; border-color:#d6262f; transform:scale(1.3); }"
+    },
+    {
+      "name": "Station Sign",
+      "kind": "custom",
+      "refersTo": "station-sign",
+      "description": "Eki-mei-hyo station name board heading each spread; bar colour is the station ink, marigold for red stations.",
+      "html": "<div class=\"ds-stage\"><header class=\"ds-sign\"><h2 class=\"ds-sign__name\">Model UN</h2><p class=\"ds-sign__sub\">Co-President since 2026 · delegate since 2024</p></header><header class=\"ds-sign ds-sign--marigold\"><h2 class=\"ds-sign__name\">Music</h2><p class=\"ds-sign__sub\">Snare · timpani · auxiliary</p></header></div>",
+      "css": ".ds-stage { display:flex; flex-wrap:wrap; gap:24px; padding:24px; background:#1f2a5c; } .ds-sign { background:#fff; padding:12px 26px 10px; border-bottom:9px solid #2546a8; box-shadow:0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); } .ds-sign--marigold { border-bottom-color:#f2a900; } .ds-sign__name { margin:0; font-family:'Dela Gothic One', 'Arial Black', sans-serif; font-weight:400; font-size:2.6rem; line-height:1; letter-spacing:-.01em; color:#17161a; } .ds-sign__sub { margin:6px 0 0; font-family:'Courier Prime', monospace; font-weight:700; font-size:.85rem; letter-spacing:.03em; color:#3d3b44; }"
+    },
+    {
+      "name": "Grid Paper Sheet",
+      "kind": "card",
+      "refersTo": "sheet-grid",
+      "description": "Torn-edge reading sheet held by washi tape; the only container for running prose.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-sheet\"><span class=\"ds-washi\"></span><p class=\"ds-lede\">I write business plans with my DECA team.</p><p>Eco Wrap is a sugarcane-bagasse packaging concept with a 20-page plan written by three of us.</p><p class=\"ds-hand\">press the stamp at every station</p></div></div>",
+      "css": ".ds-stage { padding:32px 24px; background:#1f2a5c; } .ds-sheet { position:relative; max-width:460px; padding:32px; background-color:#f4f2ea; background-image:linear-gradient(rgba(37,70,168,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(37,70,168,.16) 1px, transparent 1px); background-size:22px 22px; box-shadow:0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); font-family:'Zen Maru Gothic', ui-rounded, system-ui, sans-serif; font-size:1.0625rem; line-height:1.6; color:#17161a; transform:rotate(-.6deg); } .ds-sheet p { margin:0 0 .8em; max-width:62ch; } .ds-lede { font-size:1.2rem; line-height:1.5; } .ds-hand { font-family:Gaegu, 'Comic Sans MS', cursive; font-size:1.35rem; line-height:1.15; color:#2546a8; } .ds-washi { position:absolute; top:-12px; left:12%; width:120px; height:28px; transform:rotate(-3deg); background:rgba(255,214,64,.85) repeating-linear-gradient(90deg, transparent 0 10px, rgba(255,255,255,.35) 10px 12px); }"
+    },
+    {
+      "name": "Kraft Sheet",
+      "kind": "card",
+      "refersTo": "sheet-kraft",
+      "description": "Brown-paper stock for a second sheet in the same spread.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-kraft\"><p>Senior Patrol Leader, Feb to Aug 2025. Working toward Eagle.</p><p class=\"ds-hand\">Troop 485</p></div></div>",
+      "css": ".ds-stage { padding:32px 24px; background:#1f2a5c; } .ds-kraft { max-width:420px; padding:28px; background:#c89d6c; color:#3b2614; box-shadow:0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); font-family:'Zen Maru Gothic', ui-rounded, sans-serif; font-size:1.0625rem; line-height:1.6; transform:rotate(1deg); } .ds-kraft p { margin:0 0 .6em; } .ds-hand { font-family:Gaegu, cursive; font-size:1.35rem; line-height:1.15; color:#3b2614; }"
+    },
+    {
+      "name": "Rail Ticket",
+      "kind": "card",
+      "refersTo": "ticket",
+      "description": "Mint ticket stock with punched sides, a stub, and mono data rows.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-ticket\"><span class=\"ds-ticket__stub\">ADMIT ONE</span><dl class=\"ds-ticket__body\"><div><dt>School</dt><dd>Valley Christian HS</dd></div><div><dt>Class of</dt><dd>2028</dd></div><div><dt>GPA</dt><dd>4.71 weighted</dd></div></dl></div></div>",
+      "css": ".ds-stage { padding:32px 24px; background:#1f2a5c; } .ds-ticket { display:inline-flex; background:#bfe6d3 repeating-linear-gradient(135deg, rgba(255,255,255,.4) 0 2px, transparent 2px 7px); border-radius:6px; box-shadow:0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); -webkit-mask:radial-gradient(circle 9px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat; mask:radial-gradient(circle 9px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat; } .ds-ticket__stub { writing-mode:vertical-rl; transform:rotate(180deg); font-family:'Dela Gothic One', sans-serif; font-size:.85rem; letter-spacing:.12em; padding:14px 10px; border-left:2px dashed rgba(19,74,53,.45); color:#134a35; } .ds-ticket__body { margin:0; padding:14px 18px; display:grid; gap:6px; font-family:'Courier Prime', monospace; } .ds-ticket__body div { display:grid; grid-template-columns:6.5em 1fr; gap:8px; align-items:baseline; } .ds-ticket__body dt { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:#134a35; } .ds-ticket__body dd { margin:0; font-weight:700; color:#17161a; }"
+    },
+    {
+      "name": "Links Ticket",
+      "kind": "button",
+      "refersTo": "ticket-links",
+      "description": "Butter ticket carrying the find-me links in pressed red; the red-means-touch rule in use.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-lt\"><span class=\"ds-lt__stub\">FIND ME</span><ul class=\"ds-lt__links\"><li><a href=\"#\">LinkedIn</a></li><li><a href=\"#\">GitHub</a></li><li><a href=\"#\">Email</a></li><li><a href=\"#\">Instagram</a></li></ul></div></div>",
+      "css": ".ds-stage { padding:32px 24px; background:#1f2a5c; } .ds-lt { display:inline-flex; background:#fff3c4; border-radius:6px; box-shadow:0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); } .ds-lt__stub { writing-mode:vertical-rl; transform:rotate(180deg); font-family:'Dela Gothic One', sans-serif; font-size:.85rem; letter-spacing:.12em; padding:14px 10px; border-left:2px dashed rgba(168,22,30,.4); color:#a8161e; } .ds-lt__links { list-style:none; margin:0; padding:14px 18px; display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; font-family:'Courier Prime', monospace; font-weight:700; } .ds-lt__links a { display:inline-block; padding:4px 0; color:#a8161e; text-decoration-color:#d6262f; text-decoration-thickness:2px; text-underline-offset:3px; } .ds-lt__links a:hover { color:#d6262f; } .ds-lt__links a:focus-visible { outline:3px dashed #d6262f; outline-offset:4px; border-radius:4px; }"
+    },
+    {
+      "name": "Rally Card",
+      "kind": "custom",
+      "refersTo": "rally-card",
+      "description": "Fixed stamp counter; rings fill in the station ink as stamps are collected.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-rally\"><button class=\"ds-rally__head\" type=\"button\"><span class=\"ds-rally__title\">Stamp rally</span><span class=\"ds-rally__count\"><b>3</b>/9</span></button><ul class=\"ds-rally__rings\"><li><button class=\"ds-ring is-on\" style=\"--c:#d6262f\" aria-label=\"Hello, collected\"></button></li><li><button class=\"ds-ring is-on\" style=\"--c:#1f8a5a\" aria-label=\"DECA, collected\"></button></li><li><button class=\"ds-ring is-on\" style=\"--c:#2546a8\" aria-label=\"Model UN, collected\"></button></li><li><button class=\"ds-ring\" aria-label=\"Music\"></button></li><li><button class=\"ds-ring\" aria-label=\"Scouts\"></button></li></ul></div></div>",
+      "css": ".ds-stage { padding:32px 24px; background:#1f2a5c; } .ds-rally { position:relative; width:232px; padding:10px 12px 8px; background:#fffdf6; border-radius:6px; box-shadow:0 2px 2px rgba(10,12,30,.15), 0 18px 30px -8px rgba(10,12,30,.45), 0 40px 60px -24px rgba(10,12,30,.5); transform:rotate(-1.5deg); } .ds-rally::before { content:''; position:absolute; top:-10px; left:50%; width:74px; height:22px; margin-left:-37px; background:rgba(255,224,102,.82); transform:rotate(3deg); } .ds-rally__head { width:100%; display:flex; justify-content:space-between; align-items:baseline; background:none; border:0; padding:2px 0 6px; border-bottom:1.5px dashed rgba(23,22,26,.3); cursor:pointer; color:#17161a; } .ds-rally__head:focus-visible { outline:3px dashed #d6262f; outline-offset:4px; } .ds-rally__title { font-family:'Dela Gothic One', sans-serif; font-size:.95rem; letter-spacing:.02em; } .ds-rally__count { font-family:'Courier Prime', monospace; font-weight:700; font-variant-numeric:tabular-nums; } .ds-rally__count b { color:#d6262f; font-size:1.15rem; } .ds-rally__rings { list-style:none; margin:10px 0 0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); gap:7px 5px; } .ds-rally__rings li { display:flex; justify-content:center; } .ds-ring { width:34px; height:34px; border-radius:50%; padding:0; border:1.5px dashed rgba(23,22,26,.35); background:transparent; cursor:pointer; transition:transform .25s cubic-bezier(.16,1,.3,1), border-color .2s; } .ds-ring:hover { transform:scale(1.12); border-color:#d6262f; } .ds-ring:focus-visible { outline:3px dashed #d6262f; outline-offset:2px; } .ds-ring.is-on { border:2px solid var(--c); background:radial-gradient(circle, color-mix(in srgb, var(--c) 85%, transparent) 0 6px, transparent 7px); }"
+    },
+    {
+      "name": "Drum Pad",
+      "kind": "button",
+      "refersTo": "",
+      "description": "Circular toy control; ink border goes red on hover, squashes and tilts on hit.",
+      "html": "<div class=\"ds-stage\"><button class=\"ds-pad\" type=\"button\">Snare</button><button class=\"ds-pad ds-pad--timp\" type=\"button\">Timp</button><button class=\"ds-pad ds-pad--tri\" type=\"button\">Aux</button></div>",
+      "css": ".ds-stage { display:flex; gap:14px; padding:24px; background:#f4f2ea; } .ds-pad { width:84px; aspect-ratio:1; border-radius:50%; border:3px solid #17161a; outline:2px dashed #17161a; outline-offset:-11px; background:#fff; color:#17161a; font-family:'Dela Gothic One', sans-serif; font-size:.9rem; cursor:pointer; box-shadow:0 0 0 5px #fff, 0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); transition:transform .12s cubic-bezier(.16,1,.3,1), background-color .2s; } .ds-pad--timp { background:#c89d6c; } .ds-pad--tri { background:#bfe6d3; } .ds-pad:hover { border-color:#d6262f; outline-color:#d6262f; } .ds-pad:active { transform:scale(.9) rotate(-4deg); border-color:#d6262f; } .ds-pad:focus-visible { outline:3px dashed #d6262f; outline-offset:4px; }"
+    },
+    {
+      "name": "Washi Note",
+      "kind": "chip",
+      "refersTo": "note-yellow",
+      "description": "Flat colour note stocks (yellow, pink, mint) for short asides.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-note ds-note--yellow\"><p><b>Next up:</b> ICDC with Solviva.</p></div><div class=\"ds-note ds-note--pink\"><p>4 concerts in 9 days across Osaka, Kyoto, and Tokyo.</p></div><div class=\"ds-note ds-note--mint\"><p>Fluent Mandarin.</p></div></div>",
+      "css": ".ds-stage { display:flex; flex-wrap:wrap; gap:0; padding:28px 24px; background:#1f2a5c; } .ds-note { max-width:220px; padding:18px 20px; box-shadow:0 1px 1px rgba(10,12,30,.18), 0 6px 14px -4px rgba(10,12,30,.35), 0 18px 32px -16px rgba(10,12,30,.45); font-family:'Zen Maru Gothic', ui-rounded, sans-serif; font-size:.98rem; line-height:1.45; color:#17161a; } .ds-note p { margin:0; } .ds-note--yellow { background:#ffe066; transform:rotate(-2deg); } .ds-note--pink { background:#f7cfc6; margin:30px 0 0 -14px; transform:rotate(2deg); } .ds-note--mint { background:#bfe6d3; margin:8px 0 0 -10px; transform:rotate(-1deg); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Stamp-Rally Junk Journal",
+    "overview": "**Creative North Star: \"The Stamp-Rally Junk Journal\"**\n\nThe page is a journal lying open on indigo bookcloth. Every section is a station on a rail line, and every station is a pile of torn papers held down with washi tape: grid paper, kraft, mint rail-ticket stock, ledger pink, photocopy grey, receipts, a polaroid, a postcard. Each station carries an eki stamp the visitor presses to collect, and a rally card in the corner keeps count. The build has no cards and no boxes. Things are grouped by how they overlap, how they are taped, and how much they are tilted.\n\nThe system is dense and handmade but disciplined. Paper colours carry the world, three stamp inks carry identity, and eki red is spent only on things a finger or cursor can act on. Type is split by job: Dela Gothic for anything stamped or signed, Zen Maru Gothic for reading, Gaegu for margin scribbles, and Courier Prime for ticket and receipt data. Motion is physical and short. A stamp presses, a scrap lifts when grabbed, a card slides out of its pocket, and nothing drifts on its own.",
+    "keyCharacteristics": [
+      "Indigo bookcloth ground with a fixed weave texture and a soft top-lit radial.",
+      "Paper sheets with torn bottom edges (SVG mask), grain texture, and layered paper shadows.",
+      "Washi tape strips in yellow stripe, blue diagonal, and coral dot, at a slight rotation, on top of everything they hold.",
+      "A 12-column spread grid that pieces deliberately break with negative margins and rotation.",
+      "Eki red reserved for interaction; indigo and green as station inks.",
+      "A rail-line cursor trail with sleepers, plus click-stamp impressions, both off under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Red Means Touch Rule",
+        "body": "Eki red and pressed red appear only on things that respond to the pointer, the keyboard, or a tap: links, buttons, stamps, rings, pads, the trail. A station whose colour is red takes a marigold sign bar. The red margin rule on ledger paper is part of the paper itself and is the one allowed exception.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Inks Rule",
+        "body": "Stamp impressions come in red, indigo, or green, set per station through `--c`. Every other colour is a paper stock or a tape.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Face Per Job Rule",
+        "body": "Dela Gothic is for stamped and signed things, Zen Maru for anything read as a sentence, Gaegu for anything Kevin \"wrote\" by hand, and Courier Prime for printed data. Don't set body copy in Gaegu or data in Zen Maru.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hints Are Handwritten Rule",
+        "body": "Instructions to the visitor (\"tap the placard to flip it\", \"drag the prints around\") are Gaegu notes in washi yellow on the cloth or soft ink on paper. They are never buttons or labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift On Grab Rule",
+        "body": "Paper rises from Paper to Lift only while it is held or hovered as a control. When a scrap is grabbed, the rest of its spread dims (saturate .5, brightness .82) until it drops.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** reserve eki red (#d6262f) and pressed red (#a8161e) for elements that respond to input, and give a red station a marigold sign bar.",
+      "**Do** group content by overlap, tape, and tilt on the 12-column spread, and break spans with negative margins and `--r` rotation.",
+      "**Do** put every new container on a real paper stock with grain, the Paper shadow, and a torn or punched edge where the object would have one.",
+      "**Do** keep stamp ink to red, indigo, or green per station, applied through `--c`.",
+      "**Do** write visitor instructions as Gaegu hand notes, and keep every fact reachable without hover.",
+      "**Do** use the one easing curve `cubic-bezier(.16, 1, .3, 1)`, and turn the trail, confetti, and smooth scroll off under reduced motion."
+    ],
+    "donts": [
+      "**Don't** use bordered boxes, flat UI cards, or a hero, about, and experience-card stack. Papers overlap instead.",
+      "**Don't** add ambient or looping motion. Things move only when pressed, grabbed, pulled, or flipped.",
+      "**Don't** use hard offset shadows. Depth comes from the Paper and Lift shadow stacks.",
+      "**Don't** use red for decoration, status, or emphasis on things that cannot be touched.",
+      "**Don't** set body copy in Dela Gothic or Gaegu, or data in anything but Courier Prime."
+    ]
+  }
+}

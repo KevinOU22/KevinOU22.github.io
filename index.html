@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Kevin Ou</title>
+<meta name="description" content="Kevin Ou's junk journal: DECA business plans, Model UN, percussion and a Japan tour, Scouts, code, and photos. Collect all nine stamps.">
+<meta name="theme-color" content="#1f2a5c">
+<meta property="og:title" content="Kevin Ou">
+<meta property="og:description" content="A junk journal and stamp rally of everything I'm up to. Collect all nine stamps.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kevinou22.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/dela-gothic-one-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#hello">Skip to the journal</a>
+
+<!-- shared SVG: ink texture filter + stamp icons -->
+<svg width="0" height="0" class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="t"/>
+      <feColorMatrix in="t" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.55" result="holes"/>
+      <feComposite in="SourceGraphic" in2="holes" operator="in" result="speckled"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="3" result="w"/>
+      <feDisplacementMap in="speckled" in2="w" scale="2.5"/>
+    </filter>
+    <symbol id="i-hello" viewBox="0 0 48 48"><path d="M14 30c-3-4-4-9-1-11 2-1 4 1 5 3l2 4V12c0-2 1-3 3-3s3 1 3 3v9-12c0-2 1-3 3-3s3 1 3 3v12-9c0-2 1-3 3-3s2 1 2 3v14c0 8-5 13-12 13-5 0-9-2-12-6Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-deca" viewBox="0 0 48 48"><rect x="7" y="15" width="34" height="23" rx="3" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M18 15v-4h12v4M7 24h34M22 24v4h4v-4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M9 24h30M24 9c-5 5-5 25 0 30M24 9c5 5 5 25 0 30M12 16h24M12 32h24" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-music" viewBox="0 0 48 48"><ellipse cx="24" cy="18" rx="15" ry="5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M9 18v13c0 3 7 5 15 5s15-2 15-5V18M14 22l5 13M34 22l-5 13M24 23v13" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M30 4 21 14M40 6 27 15" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-scouts" viewBox="0 0 48 48"><path d="M24 7 6 39h36Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 7v32M18 39l6-12 6 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M38 14c3-3 6-2 6 1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-court" viewBox="0 0 48 48"><path d="m13 19 10-10 6 6-10 10Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="m26 18 13 13M8 40h20" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="37" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-code" viewBox="0 0 48 48"><path d="m17 15-9 9 9 9M31 15l9 9-9 9M27 11l-6 26" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 48 48"><path d="M7 16h8l3-5h12l3 5h8v22H7Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><circle cx="24" cy="26" r="7" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+    <symbol id="i-post" viewBox="0 0 48 48"><rect x="6" y="12" width="36" height="25" rx="2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="m6 14 18 13 18-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-go" viewBox="0 0 40 16"><path d="M2 8h33M27 2l8 6-8 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 60 40"><path d="M4 8c14 2 30 6 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="m38 30 10 0 0-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- rail route: the station navigation -->
+<nav class="route" aria-label="Stations">
+  <ol class="route__line">
+    <li><a href="#hello" data-station="hello"><span class="route__dot"></span><span>Hello</span></a></li>
+    <li><a href="#deca" data-station="deca"><span class="route__dot"></span><span>DECA</span></a></li>
+    <li><a href="#mun" data-station="mun"><span class="route__dot"></span><span>Model UN</span></a></li>
+    <li><a href="#music" data-station="music"><span class="route__dot"></span><span>Music</span></a></li>
+    <li><a href="#scouts" data-station="scouts"><span class="route__dot"></span><span>Scouts</span></a></li>
+    <li><a href="#court" data-station="court"><span class="route__dot"></span><span>Court &amp; Canvas</span></a></li>
+    <li><a href="#code" data-station="code"><span class="route__dot"></span><span>Code</span></a></li>
+    <li><a href="#photos" data-station="photos"><span class="route__dot"></span><span>Photos</span></a></li>
+    <li><a href="#findme" data-station="findme"><span class="route__dot"></span><span>Find me</span></a></li>
+  </ol>
+</nav>
+
+<!-- stamp rally card -->
+<aside class="rally" aria-label="Stamp rally progress">
+  <button class="rally__head" type="button" aria-expanded="false" aria-controls="rally-rings">
+    <span class="rally__title">Stamp rally</span>
+    <span class="rally__count"><b data-count>0</b>/9</span>
+  </button>
+  <ol class="rally__rings" id="rally-rings"></ol>
+  <p class="rally__done" hidden>Rally complete! You've met all of me. <button type="button" class="rally__reset">Start over</button></p>
+</aside>
+
+<main class="journal">
+
+  <!-- HELLO -->
+  <section class="spread spread--hello" id="hello" data-station="hello" data-color="red" data-icon="i-hello" aria-labelledby="h-hello">
+    <div class="sheet sheet--grid hello__page">
+      <span class="washi washi--yellow" style="--r:-4deg; --x:8%;"></span>
+      <span class="washi washi--blue" style="--r:6deg; --x:72%;"></span>
+      <h1 class="hello__name" id="h-hello"><span>Kevin</span> <span>Ou</span></h1>
+      <p class="hello__intro">Hi! I write business plans, run a Model UN club, play percussion, take photos, and build little apps. This journal is where I keep all of it.</p>
+      <p class="hand hello__tip">press the stamp at every station to collect it <svg class="hand__arrow"><use href="#i-arrow"/></svg></p>
+      <div class="stampspot hello__stamp"></div>
+    </div>
+
+    <figure class="scrap polaroid hello__me" data-drag style="--r:5deg">
+      <div class="polaroid__slot placeholder"><span>photo of me<br>coming soon</span></div>
+      <figcaption class="hand">me, probably mid-rehearsal</figcaption>
+    </figure>
+
+    <div class="scrap ticket ticket--admit hello__admit" data-drag style="--r:-3deg">
+      <span class="ticket__stub">ADMIT ONE</span>
+      <dl class="ticket__body">
+        <div><dt>School</dt><dd>Valley Christian High School</dd></div>
+        <div><dt>Class of</dt><dd class="num">2028</dd></div>
+        <div><dt>GPA</dt><dd class="num">4.71 <small>weighted</small></dd></div>
+      </dl>
+    </div>
+
+    <div class="scrap ledger hello__schedule" data-drag style="--r:2deg">
+      <p class="ledger__head">This year's schedule</p>
+      <ul>
+        <li>AP U.S. History</li>
+        <li>AP Calculus AB</li>
+        <li>AP Computer Science A</li>
+        <li>AP English Language</li>
+        <li>AP Physics 1</li>
+        <li>Photographic Design Studio Honors</li>
+      </ul>
+      <p class="hand ledger__note">already done: AP World <b>4</b> · AP Precalc <b>4</b> (self-studied!)</p>
+    </div>
+
+    <span class="scrap sticker sticker--zh" data-drag style="--r:-8deg"><span lang="zh">我会说中文</span><small>fluent in Mandarin</small></span>
+
+    <div class="scrap ticket ticket--links hello__links taped" style="--r:-1.5deg">
+      <span class="ticket__stub">FIND ME</span>
+      <ul class="ticket__links">
+        <li><a href="https://www.linkedin.com/in/kevin-o-841841398" rel="noopener" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/iamkevin22_/" rel="noopener" target="_blank">Instagram</a></li>
+        <li><a href="https://github.com/KevinOU22" rel="noopener" target="_blank">GitHub</a></li>
+        <li><a href="mailto:kevinouzhou@gmail.com">Email</a></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- DECA -->
+  <section class="spread spread--deca" id="deca" data-station="deca" data-color="green" data-icon="i-deca" aria-labelledby="h-deca">
+    <header class="sign">
+      <h2 class="sign__name" id="h-deca">DECA</h2>
+      <p class="sign__sub">Business plans &amp; roleplay · since 2025</p>
+    </header>
+
+    <div class="sheet sheet--kraft deca__page">
+      <span class="washi washi--coral" style="--r:-3deg; --x:40%;"></span>
+      <p class="lede">I compete in International Business Plan and roleplay events. My team of three turns one idea into a real company on paper: market research, competitors, numbers, and a pitch.</p>
+
+      <div class="pocket" data-pocket>
+        <button class="pocket__card" type="button" aria-expanded="false">
+          <span class="pocket__tab">Eco Wrap</span>
+          <span class="pocket__peek">pull out the plan</span>
+        </button>
+        <div class="pocket__front" aria-hidden="true"><span>BUSINESS PLAN · 2025–26</span></div>
+        <div class="pocket__detail" hidden>
+          <p><b>Eco Wrap</b> is biodegradable food packaging made from sugarcane bagasse, the fiber left over after the juice is pressed out.</p>
+          <p>We co-wrote a 20-page business plan for it.</p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="ribbons" aria-label="DECA awards">
+      <li class="scrap ribbon ribbon--bronze" data-drag style="--r:-6deg"><span class="ribbon__place">3rd</span><span class="ribbon__what">International Business Plan<br><small>California DECA State Conference · qualified for ICDC</small></span></li>
+      <li class="scrap ribbon ribbon--blue" data-drag style="--r:3deg"><span class="ribbon__place">Award of Excellence</span><span class="ribbon__what">International Business Plan<br><small>DECA International Career Development Conference</small></span></li>
+      <li class="scrap ribbon ribbon--gold" data-drag style="--r:-2deg"><span class="ribbon__place">1st</span><span class="ribbon__what">Principles of Entrepreneurship Roleplay<br><small>Valley Christian Mock Conference</small></span></li>
+    </ol>
+
+    <div class="scrap note note--yellow deca__next" data-drag style="--r:4deg">
+      <p><b>Now building: Solviva.</b> It's solar-powered, pay-per-crate cold storage for small farmers in Bangladesh, and it's our 2026–27 entry.</p>
+    </div>
+
+  </section>
+
+  <!-- MODEL UN -->
+  <section class="spread spread--mun" id="mun" data-station="mun" data-color="indigo" data-icon="i-mun" aria-labelledby="h-mun">
+    <header class="sign">
+      <h2 class="sign__name" id="h-mun">Model UN</h2>
+      <p class="sign__sub">Co-President since 2026 · delegate since 2024</p>
+    </header>
+
+    <div class="mun__layout">
+      <button class="placard taped" type="button" aria-pressed="false" aria-label="Flip the delegate placard">
+        <span class="placard__face placard__front">
+          <span class="placard__country">KEVIN OU</span>
+          <span class="placard__role">Co-President</span>
+        </span>
+        <span class="placard__face placard__back">
+          <span>I design and teach every training lesson for our 10–15 member club. Most of them are brand new to MUN, so I'm getting them ready for competition season.</span>
+          <span>I also plan and run club meetings and handle all member communication.</span>
+        </span>
+      </button>
+      <p class="hand mun__hint">tap the placard to flip it</p>
+
+      <ul class="badges" aria-label="Conferences">
+        <li class="scrap badge" data-drag style="--r:-5deg"><span class="badge__clip"></span><span class="badge__org">Stanford</span><span class="badge__conf">Stanford Model United Nations Conference</span><span class="badge__tag">DELEGATE</span></li>
+        <li class="scrap badge" data-drag style="--r:3deg"><span class="badge__clip"></span><span class="badge__org">SBMUN</span><span class="badge__conf">South Bay MUN</span><span class="badge__tag">DELEGATE</span></li>
+        <li class="scrap badge badge--award" data-drag style="--r:-2deg"><span class="badge__clip"></span><span class="badge__org">SCVMUN</span><span class="badge__conf">Santa Clara Valley MUN</span><span class="badge__tag">VERBAL COMMENDATION</span></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- MUSIC -->
+  <section class="spread spread--music" id="music" data-station="music" data-color="red" data-icon="i-music" aria-labelledby="h-music">
+    <header class="sign">
+      <h2 class="sign__name" id="h-music">Music</h2>
+      <p class="sign__sub">Snare · timpani · auxiliary · guitar · bass · drums</p>
+    </header>
+
+    <div class="sheet sheet--photocopy music__page">
+      <span class="washi washi--blue" style="--r:2deg; --x:60%;"></span>
+      <p class="lede">I play percussion in the <b>California Youth Symphony</b> Senior Orchestra. I got in by audition, and we rehearse three hours every week.</p>
+      <p>In summer 2026 we toured Japan: four concerts in nine days across Osaka, Kyoto and Tokyo, including a joint concert with Japanese students.</p>
+    </div>
+
+    <ol class="tour" aria-label="Japan tour, summer 2026">
+      <li><button class="scrap railticket" type="button" style="--r:-3deg" aria-pressed="false"><span class="railticket__from">大阪 <small>OSAKA</small></span><svg class="railticket__arrow" aria-hidden="true"><use href="#i-go"/></svg><span class="railticket__to">京都 <small>KYOTO</small></span><span class="railticket__meta">JAPAN TOUR · SUMMER 2026</span><span class="railticket__punch" aria-hidden="true"></span></button></li>
+      <li><button class="scrap railticket" type="button" style="--r:2deg" aria-pressed="false"><span class="railticket__from">京都 <small>KYOTO</small></span><svg class="railticket__arrow" aria-hidden="true"><use href="#i-go"/></svg><span class="railticket__to">東京 <small>TOKYO</small></span><span class="railticket__meta">4 CONCERTS · 9 DAYS</span><span class="railticket__punch" aria-hidden="true"></span></button></li>
+    </ol>
+    <p class="hand tour__hint">click a ticket to punch it</p>
+
+    <div class="drumkit scrap taped" style="--r:-1deg" role="group" aria-label="Play a little percussion">
+      <p class="hand drumkit__label">play a little (or press S, T, A)</p>
+      <div class="drumkit__pads">
+        <button type="button" class="pad pad--snare" data-sound="snare">Snare</button>
+        <button type="button" class="pad pad--timp" data-sound="timpani">Timpani</button>
+        <button type="button" class="pad pad--tri" data-sound="triangle">Triangle</button>
+      </div>
+    </div>
+
+    <div class="music__side">
+      <div class="scrap note note--pink" data-drag style="--r:3deg">
+        <p><b>Soundshine</b>: I play guitar, bass and drums with a student nonprofit band. We perform monthly at farmers markets and senior homes and raise money for families in need.</p>
+      </div>
+      <div class="scrap note note--mint" data-drag style="--r:-4deg">
+        <p><b>Tri City Band Corps</b>: I was the Recruitment Officer (2025–26) for a student-run drum corps that marches in community parades.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SCOUTS -->
+  <section class="spread spread--scouts" id="scouts" data-station="scouts" data-color="green" data-icon="i-scouts" aria-labelledby="h-scouts">
+    <header class="sign">
+      <h2 class="sign__name" id="h-scouts">Scouts</h2>
+      <p class="sign__sub">Troop 485 · since 2021</p>
+    </header>
+
+    <div class="sheet sheet--kraft scouts__page">
+      <p class="lede">I was elected <b>Senior Patrol Leader</b> (Feb–Aug 2025). I led troop meetings, coordinated conferences and community events, and built ties with our Cub Scout pack and other troops.</p>
+      <span class="washi washi--coral" style="--r:4deg; --x:62%;"></span>
+      <p>Before that I was Assistant SPL, Troop Guide, Patrol Leader, Instructor and Librarian, teaching younger Scouts outdoor skills. I was also elected to the <b>Order of the Arrow</b>, Scouting's national honor society.</p>
+    </div>
+
+    <div class="scrap sash taped" data-drag style="--r:7deg"><span>Order of the Arrow</span><small>elected by fellow Scouts</small></div>
+
+    <ol class="ranks" aria-label="Rank path">
+      <li class="rank"><span class="patch">Scout</span></li>
+      <li class="rank"><span class="patch">Tenderfoot</span></li>
+      <li class="rank"><span class="patch">Second Class</span></li>
+      <li class="rank"><span class="patch">First Class</span></li>
+      <li class="rank"><span class="patch">Star</span></li>
+      <li class="rank rank--now"><span class="patch">Life</span></li>
+      <li class="rank rank--next"><span class="patch">Eagle</span><span class="hand rank__note">working on it</span></li>
+    </ol>
+
+  </section>
+
+  <!-- COURT & CANVAS -->
+  <section class="spread spread--court" id="court" data-station="court" data-color="indigo" data-icon="i-court" aria-labelledby="h-court">
+    <header class="sign">
+      <h2 class="sign__name" id="h-court">Court &amp; Canvas</h2>
+      <p class="sign__sub">Mock Trial · Canvas for Change</p>
+    </header>
+
+    <div class="court__layout">
+      <div class="scrap docket taped" data-drag style="--r:-3deg">
+        <p class="docket__head">Mock Trial · Team Member since 2025</p>
+        <dl>
+          <div><dt>Providence Cup, 2026–27</dt><dd>Witness. Our team was named <b>Rookie Team Finalist</b>.</dd></div>
+          <div><dt>County competition, 2025–26</dt><dd>Bailiff.</dd></div>
+        </dl>
+      </div>
+
+      <div class="sheet sheet--grid canvas__page">
+        <span class="washi washi--yellow" style="--r:-5deg; --x:20%;"></span>
+        <p class="lede">I founded <b>Canvas for Change</b> (2025–26), a nonprofit offering free art programs and art-supply donation drives for students in grades 3–8. I set its mission and led its early planning.</p>
+        <div class="crayons" role="group" aria-label="Pick a color for your cursor trail">
+          <p class="hand">pick a crayon for your cursor trail:</p>
+          <button type="button" class="crayon" style="--c:#d6262f" data-trail="#d6262f" aria-pressed="true"><span class="sr">Red</span></button>
+          <button type="button" class="crayon" style="--c:#2546a8" data-trail="#2546a8" aria-pressed="false"><span class="sr">Indigo</span></button>
+          <button type="button" class="crayon" style="--c:#1f8a5a" data-trail="#1f8a5a" aria-pressed="false"><span class="sr">Green</span></button>
+          <button type="button" class="crayon" style="--c:#f2a900" data-trail="#f2a900" aria-pressed="false"><span class="sr">Marigold</span></button>
+          <button type="button" class="crayon" style="--c:#e0569b" data-trail="#e0569b" aria-pressed="false"><span class="sr">Pink</span></button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CODE -->
+  <section class="spread spread--code" id="code" data-station="code" data-color="red" data-icon="i-code" aria-labelledby="h-code">
+    <header class="sign">
+      <h2 class="sign__name" id="h-code">Code</h2>
+      <p class="sign__sub">Java in AP CS A · Swift · TypeScript</p>
+    </header>
+
+    <p class="code__intro hand">things I've built (tap a receipt to print the rest)</p>
+    <ul class="receipts">
+      <li>
+        <button class="scrap receipt" type="button" aria-expanded="false" style="--r:-2deg">
+          <span class="receipt__shop">VIBE THEATER</span>
+          <span class="receipt__line"><span>Mac app</span><span>Swift / SwiftUI</span></span>
+          <span class="receipt__more">
+            <span>A notch overlay, like a Dynamic Island, that shows “Working…” while Claude is busy and pings you when it's done, so you can switch apps without losing track.</span>
+            <span class="receipt__total"><span>STATUS</span><span>IN PROGRESS</span></span>
+          </span>
+        </button>
+      </li>
+      <li>
+        <button class="scrap receipt" type="button" aria-expanded="false" style="--r:2.5deg">
+          <span class="receipt__shop">PULSE</span>
+          <span class="receipt__line"><span>Claude Code panel</span><span>TypeScript</span></span>
+          <span class="receipt__more">
+            <span>A live side panel that shows what Claude is really doing: turns, tokens, tool calls, and files touched. Every number comes from real session data, and nothing is made up.</span>
+            <span class="receipt__total"><span>STATUS</span><span>IN PROGRESS</span></span>
+          </span>
+        </button>
+      </li>
+      <li>
+        <div class="scrap receipt receipt--open" style="--r:-1deg">
+          <span class="receipt__shop">STUDY MAP</span>
+          <span class="receipt__line"><span>Claude skill</span><span>open source</span></span>
+          <span class="receipt__more">
+            <span>It turns any study guide into an interactive study app: a linked map, a timeline, flashcards, and AI-checked free response.</span>
+            <a class="receipt__total receipt__link" href="https://github.com/KevinOU22/study-map-skill" rel="noopener" target="_blank"><span>SEE IT ON GITHUB</span><svg class="go" aria-hidden="true"><use href="#i-go"/></svg></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+
+  </section>
+
+  <!-- PHOTOS -->
+  <section class="spread spread--photos" id="photos" data-station="photos" data-color="indigo" data-icon="i-photo" aria-labelledby="h-photos">
+    <header class="sign">
+      <h2 class="sign__name" id="h-photos">Photos</h2>
+      <p class="sign__sub">Photographic Design Studio Honors</p>
+    </header>
+
+    <p class="photos__intro">I'm in Photographic Design Studio Honors this year. My recent work includes the <b>Behold</b> project, and I'm choosing photos for a Scholastic Art &amp; Writing Awards entry.</p>
+    <p class="hand photos__hint">drag the prints around</p>
+
+    <div class="prints sheet sheet--kraft">
+      <figure class="scrap print" data-drag style="--r:-4deg"><div class="print__img placeholder"><span>photo slot</span></div><figcaption class="hand">Behold project</figcaption></figure>
+      <figure class="scrap print print--wide" data-drag style="--r:3deg"><div class="print__img placeholder"><span>photo slot</span></div><figcaption class="hand">Scholastic pick?</figcaption></figure>
+      <figure class="scrap print" data-drag style="--r:-1deg"><div class="print__img placeholder"><span>photo slot</span></div><figcaption class="hand">Japan, summer 2026</figcaption></figure>
+      <figure class="scrap print print--tall" data-drag style="--r:5deg"><div class="print__img placeholder"><span>photo slot</span></div><figcaption class="hand">studio</figcaption></figure>
+    </div>
+
+  </section>
+
+  <!-- FIND ME -->
+  <section class="spread spread--findme" id="findme" data-station="findme" data-color="red" data-icon="i-post" aria-labelledby="h-findme">
+    <header class="sign">
+      <h2 class="sign__name" id="h-findme">Find me</h2>
+      <p class="sign__sub">Santa Clara, CA</p>
+    </header>
+
+    <div class="postcard">
+      <div class="postcard__msg">
+        <p class="hand postcard__write">Thanks for flipping through my journal! Say hi anywhere below. I'm always up for talking business, MUN, music, or whatever you're building.</p>
+        <p class="hand postcard__sign">Kevin</p>
+      </div>
+      <div class="postcard__addr">
+        <div class="postage" aria-hidden="true"><span>KO</span><small>SANTA CLARA</small></div>
+        <ul class="addr">
+          <li><span class="addr__k">LinkedIn</span><a href="https://www.linkedin.com/in/kevin-o-841841398" rel="noopener" target="_blank">kevin-o-841841398</a></li>
+          <li><span class="addr__k">GitHub</span><a href="https://github.com/KevinOU22" rel="noopener" target="_blank">KevinOU22</a></li>
+          <li><span class="addr__k">Email</span><a href="mailto:kevinouzhou@gmail.com">kevinouzhou@gmail.com</a></li>
+          <li><span class="addr__k">Instagram</span><a href="https://www.instagram.com/iamkevin22_/" rel="noopener" target="_blank">@iamkevin22_</a></li>
+          <li><span class="addr__k">DECA team</span><a href="https://www.instagram.com/deca.3.skm/" rel="noopener" target="_blank">@deca.3.skm</a></li>
+          <li><span class="addr__k">Business</span><a href="https://www.instagram.com/official.bbcproductions/" rel="noopener" target="_blank">@official.bbcproductions</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="colophon">
+    <p>Kevin Ou · Santa Clara, CA · <span class="num">2026</span></p>
+  </footer>
+</main>
+
+<canvas class="trail" aria-hidden="true"></canvas>
+<canvas class="confetti" aria-hidden="true"></canvas>
+<p class="sr" aria-live="polite" data-announce></p>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

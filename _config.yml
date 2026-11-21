@@ -1,0 +1,6 @@
+# GitHub Pages: keep design notes in the repo but off the live site
+exclude:
+  - PRODUCT.md
+  - DESIGN.md
+  - README.md
+  - .impeccable
