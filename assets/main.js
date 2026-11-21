@@ -273,6 +273,20 @@
   $$("button.receipt").forEach((b) => b.addEventListener("click", () => {
     b.setAttribute("aria-expanded", String(b.getAttribute("aria-expanded") !== "true"));
   }));
+  $$(".receipt--print").forEach((card) => {
+    const tap = card.querySelector(".receipt__tap"), more = card.querySelector(".receipt__more");
+    const set = (open) => {
+      card.classList.toggle("is-printed", open);
+      tap.setAttribute("aria-expanded", String(open));
+      more.inert = !open;
+    };
+    card.addEventListener("click", (ev) => {
+      if (ev.target.closest("a")) return;
+      const open = card.classList.contains("is-printed");
+      if (!open) set(true);
+      else if (ev.target.closest(".receipt__tap")) set(false);
+    });
+  });
 
   /* ── crayons: pick trail colour ─────────────────── */
   const crayons = $$(".crayon");

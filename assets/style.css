@@ -560,6 +560,13 @@ kbd { font-family: var(--f-data); font-size: .75em; border: 1px solid currentCol
 .receipt__link:hover { color: var(--red); }
 .receipt--open { cursor: default; }
 .receipt--open .receipt__more { display: flex; flex-direction: column; gap: 12px; }
+.receipt--print { cursor: pointer; }
+.receipt--print.is-printed { cursor: default; }
+.receipt__tap { appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: inherit; display: flex; flex-direction: column; gap: 10px; cursor: pointer; }
+.receipt--print .receipt__more { grid-template-rows: 0fr 0fr; }
+.receipt--print:not(.is-printed) .receipt__more > * { visibility: hidden; padding-top: 0; border-top-width: 0; }
+.receipt--print.is-printed .receipt__more { grid-template-rows: 1fr auto; gap: 12px; }
+.receipt--print:not(.is-printed)::after { content: "tap to print the rest"; font-family: var(--f-hand); font-size: 1.125rem; color: var(--red-deep); }
 
 /* ── PHOTOS ─────────────────────────────────────── */
 .photos__intro { grid-column: 1 / span 7; grid-row: 2; color: #eef0fb; font-size: 1.125rem; max-width: 56ch; margin: 0; }

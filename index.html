@@ -28,7 +28,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="preload" href="assets/fonts/dela-gothic-one-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css?v=7">
-<link rel="stylesheet" href="assets/style.css?v=8">
+<link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body>
 <a class="skip" href="#hello">Skip to the journal</a>
@@ -367,30 +367,36 @@
     <p class="code__intro hand">things I've built (tap a receipt to print the rest)</p>
     <ul class="receipts">
       <li>
-        <button class="scrap receipt" type="button" aria-expanded="false" style="--r:-2deg">
-          <span class="receipt__shop">VIBE THEATER</span>
-          <span class="receipt__line"><span>Mac app</span><span>Swift / SwiftUI</span></span>
-          <span class="receipt__more">
-            <span>A notch overlay, like a Dynamic Island, that shows “Working…” while Claude is busy and pings you when it's done, so you can switch apps without losing track.</span>
-            <span class="receipt__total"><span>STATUS</span><span>IN PROGRESS</span></span>
+        <div class="scrap receipt receipt--print" style="--r:-2deg">
+          <button class="receipt__tap" type="button" aria-expanded="false" aria-controls="rc-vibe">
+            <span class="receipt__shop">VIBE THEATER</span>
+            <span class="receipt__line"><span>Mac app + web</span><span>open source</span></span>
+          </button>
+          <span class="receipt__more" id="rc-vibe" inert>
+            <span>A vibe-coding LARP interface that show a fake AI code editor where code types itself, agents chat and terminals scroll while you do nothing, plus a hover-to-expand notch that only appears when you’re in other apps and plays an 8-bit chime whenever one of your real Claude chats finishes.</span>
+            <a class="receipt__total receipt__link" href="https://github.com/KevinOU22/vibe-theater" rel="noopener" target="_blank"><span>SEE IT ON GITHUB</span><svg class="go" aria-hidden="true"><use href="#i-go"/></svg></a>
           </span>
-        </button>
+        </div>
       </li>
       <li>
-        <div class="scrap receipt receipt--open" style="--r:2.5deg">
-          <span class="receipt__shop">PULSE ISLAND</span>
-          <span class="receipt__line"><span>Claude Code panel</span><span>open source</span></span>
-          <span class="receipt__more">
+        <div class="scrap receipt receipt--print" style="--r:2.5deg">
+          <button class="receipt__tap" type="button" aria-expanded="false" aria-controls="rc-pulse">
+            <span class="receipt__shop">PULSE ISLAND</span>
+            <span class="receipt__line"><span>Claude Code panel</span><span>open source</span></span>
+          </button>
+          <span class="receipt__more" id="rc-pulse" inert>
             <span>A live side panel that shows what Claude is really doing: tokens, tool calls, files touched, and usage limits. Each of my chats gets a little sprout on an island that bounces while it works, falls asleep when it's quiet, and holds up a “?” when it needs me.</span>
             <a class="receipt__total receipt__link" href="https://github.com/KevinOU22/pulse-island" rel="noopener" target="_blank"><span>SEE IT ON GITHUB</span><svg class="go" aria-hidden="true"><use href="#i-go"/></svg></a>
           </span>
         </div>
       </li>
       <li>
-        <div class="scrap receipt receipt--open" style="--r:-1deg">
-          <span class="receipt__shop">STUDY MAP</span>
-          <span class="receipt__line"><span>Claude skill</span><span>open source</span></span>
-          <span class="receipt__more">
+        <div class="scrap receipt receipt--print" style="--r:-1deg">
+          <button class="receipt__tap" type="button" aria-expanded="false" aria-controls="rc-study">
+            <span class="receipt__shop">STUDY MAP</span>
+            <span class="receipt__line"><span>Claude skill</span><span>open source</span></span>
+          </button>
+          <span class="receipt__more" id="rc-study" inert>
             <span>It turns any study guide into an interactive study app: a linked map, a timeline, flashcards, and AI-checked free response.</span>
             <a class="receipt__total receipt__link" href="https://github.com/KevinOU22/study-map-skill" rel="noopener" target="_blank"><span>SEE IT ON GITHUB</span><svg class="go" aria-hidden="true"><use href="#i-go"/></svg></a>
           </span>
@@ -457,6 +463,6 @@
 <canvas class="confetti" aria-hidden="true"></canvas>
 <p class="sr" aria-live="polite" data-announce></p>
 
-<script src="assets/main.js?v=8" defer></script>
+<script src="assets/main.js?v=9" defer></script>
 </body>
 </html>
