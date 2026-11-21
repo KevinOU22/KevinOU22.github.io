@@ -160,7 +160,7 @@ The system is dense and handmade but disciplined. Paper colours carry the world,
 - Washi tape strips in yellow stripe, blue diagonal, and coral dot, at a slight rotation, on top of everything they hold.
 - A 12-column spread grid that pieces deliberately break with negative margins and rotation.
 - Eki red reserved for interaction; indigo and green as station inks.
-- A tapered marker-ribbon cursor trail that sheds die-cut sticker scraps (stars, hearts, ticket stubs, dots), plus click-stamp impressions with a sticker burst, all off under reduced motion.
+- A waxy crayon cursor trail (tapered, ragged edge, paper-tooth texture fixed to the page) that sheds tiny wax crumbs, plus click-stamp impressions, all off under reduced motion. Sections place their pieces once on scroll: the sign drops in, the sheet wipes down, scraps settle in a non-uniform stagger. A shinkansen rides the top route as scroll progress.
 
 ## Colors
 

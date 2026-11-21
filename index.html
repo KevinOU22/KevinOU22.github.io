@@ -46,6 +46,11 @@
 
 <!-- rail route: the station navigation -->
 <nav class="route" aria-label="Stations">
+  <a class="route__logo" href="#hello" aria-label="Kevin Ou, back to the top"><span class="logo-ko" aria-hidden="true">KO</span><span class="route__logo-name">Kevin Ou</span></a>
+  <div class="route__track">
+  <span class="route__rail" aria-hidden="true"></span>
+  <span class="route__done" aria-hidden="true"></span>
+  <span class="route__train" aria-hidden="true"><svg viewBox="0 0 46 22"><path d="M3 16V9c0-3 2-5 5-5h20c7 0 13 4 15 10l1 2v2H3Z" fill="#fff" stroke="#17161a" stroke-width="2" stroke-linejoin="round"/><path d="M30 6c5 1 9 4 11 9h-9c-1 0-2-1-2-2Z" fill="#1f2a5c"/><path d="M3 13h40" stroke="#2546a8" stroke-width="2.4"/><rect x="8" y="7" width="5" height="4" rx="1" fill="#1f2a5c"/><rect x="16" y="7" width="5" height="4" rx="1" fill="#1f2a5c"/><rect x="24" y="7" width="4" height="4" rx="1" fill="#1f2a5c"/><circle cx="10" cy="19" r="2" fill="#17161a"/><circle cx="34" cy="19" r="2" fill="#17161a"/></svg></span>
   <ol class="route__line">
     <li><a href="#hello" data-station="hello"><span class="route__dot"></span><span>Hello</span></a></li>
     <li><a href="#deca" data-station="deca"><span class="route__dot"></span><span>DECA</span></a></li>
@@ -57,6 +62,21 @@
     <li><a href="#photos" data-station="photos"><span class="route__dot"></span><span>Photos</span></a></li>
     <li><a href="#findme" data-station="findme"><span class="route__dot"></span><span>Find me</span></a></li>
   </ol>
+  </div>
+</nav>
+
+<!-- journal edges on wide screens: binding on the left, index tabs on the right -->
+<div class="spine" aria-hidden="true"></div>
+<nav class="tabs" aria-label="Index tabs">
+  <a href="#hello" data-station="hello" style="--t:#ffe066">Hello</a>
+  <a href="#deca" data-station="deca" style="--t:#bfe6d3">DECA</a>
+  <a href="#mun" data-station="mun" style="--t:#cfe0ff">MUN</a>
+  <a href="#music" data-station="music" style="--t:#f7cfc6">Music</a>
+  <a href="#scouts" data-station="scouts" style="--t:#e9dcb8">Scouts</a>
+  <a href="#court" data-station="court" style="--t:#ffe066">Court</a>
+  <a href="#code" data-station="code" style="--t:#f7cfc6">Code</a>
+  <a href="#photos" data-station="photos" style="--t:#bfe6d3">Photos</a>
+  <a href="#findme" data-station="findme" style="--t:#cfe0ff">Find me</a>
 </nav>
 
 <!-- stamp rally card -->
@@ -77,7 +97,7 @@
       <span class="washi washi--yellow" style="--r:-4deg; --x:8%;"></span>
       <span class="washi washi--blue" style="--r:6deg; --x:72%;"></span>
       <h1 class="hello__name" id="h-hello"><span>Kevin</span> <span>Ou</span></h1>
-      <p class="hello__intro">Hi! I write business plans, run a Model UN club, play percussion, take photos, and build little apps. This journal is where I keep all of it.</p>
+      <p class="hello__intro">Hi! I pitch startup ideas, run a Model UN club, play percussion, take photos, and build little apps. This journal is where I keep all of it.</p>
       <p class="hand hello__tip">press the stamp at every station to collect it <svg class="hand__arrow"><use href="#i-arrow"/></svg></p>
       <div class="stampspot hello__stamp"></div>
     </div>
@@ -223,9 +243,9 @@
     <div class="drumkit scrap taped" style="--r:-1deg" role="group" aria-label="Play a little percussion">
       <p class="hand drumkit__label">play a little (or press S, T, A)</p>
       <div class="drumkit__pads">
-        <button type="button" class="pad pad--snare" data-sound="snare">Snare</button>
-        <button type="button" class="pad pad--timp" data-sound="timpani">Timpani</button>
-        <button type="button" class="pad pad--tri" data-sound="triangle">Triangle</button>
+        <button type="button" class="pad" data-sound="snare"><img src="assets/instruments/snare.jpg" alt="" width="960" height="960" loading="lazy" draggable="false" style="--pos: 50% 55%"><span>Snare</span></button>
+        <button type="button" class="pad" data-sound="timpani"><img src="assets/instruments/timpani.jpg" alt="" width="960" height="927" loading="lazy" draggable="false" style="--pos: 62% 62%"><span>Timpani</span></button>
+        <button type="button" class="pad" data-sound="triangle"><img src="assets/instruments/triangle.jpg" alt="" width="960" height="720" loading="lazy" draggable="false" style="--pos: 50% 50%"><span>Triangle</span></button>
       </div>
     </div>
 
@@ -356,7 +376,7 @@
       <figure class="scrap print" data-drag style="--r:-4deg"><img class="print__img photo" src="assets/photos/behold-cranes.jpg" width="768" height="1024" alt="Grey paper cranes hanging at different depths, the far ones blurred into soft light" loading="lazy" draggable="false" style="--pos: 50% 40%"><figcaption class="hand">Behold project</figcaption></figure>
       <figure class="scrap print print--wide" data-drag style="--r:3deg"><img class="print__img photo" src="assets/photos/scholastic-lake.jpg" width="1086" height="724" alt="A wooden dock on a still lake at dusk, pink clouds over dark mountains with snow on the far peaks" loading="lazy" draggable="false" style="--pos: 50% 50%"><figcaption class="hand">Scholastic pick?</figcaption></figure>
       <figure class="scrap print" data-drag style="--r:-1deg"><img class="print__img photo" src="assets/photos/japan-shinkansen.jpg" width="1161" height="1400" alt="A shinkansen nose waiting at an elevated platform under steel canopy beams and overhead wires" loading="lazy" draggable="false" style="--pos: 55% 62%"><figcaption class="hand">Japan, summer 2026</figcaption></figure>
-      <figure class="scrap print print--tall" data-drag style="--r:5deg"><img class="print__img photo" src="assets/photos/studio-columns.jpg" width="768" height="1024" alt="Kevin leaning against a stone column in a long colonnade, looking up, a Canon camera hanging from his hand" loading="lazy" draggable="false" style="--pos: 50% 50%"><figcaption class="hand">on a shoot, camera always in hand</figcaption></figure>
+      <figure class="scrap print print--tall" data-drag style="--r:5deg"><img class="print__img photo" src="assets/photos/studio-columns.jpg" width="768" height="1024" alt="Kevin leaning against a stone column in a long colonnade, looking up, a Canon camera hanging from his hand" loading="lazy" draggable="false" style="--pos: 50% 50%"><figcaption class="hand">on a photo shoot</figcaption></figure>
     </div>
 
   </section>
@@ -394,6 +414,7 @@
 
   <footer class="colophon">
     <p>Kevin Ou · Santa Clara, CA · <span class="num">2026</span></p>
+    <p class="credits">Instrument photos from Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Curly_maple_snare_drum_with_legacy_%22S%22_style_lugs.jpg" rel="noopener" target="_blank">snare</a> by Unnecessary user (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank">CC BY-SA 4.0</a>, cropped) · <a href="https://commons.wikimedia.org/wiki/File:Timpani_tuning.jpg" rel="noopener" target="_blank">timpani</a> by Andreas Praefcke (public domain) · <a href="https://commons.wikimedia.org/wiki/File:Triangel1.jpg" rel="noopener" target="_blank">triangle</a> by Žiga (CC0)</p>
   </footer>
 </main>
 

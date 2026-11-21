@@ -138,25 +138,76 @@
   });
   render();
 
-  /* ── route scroll-spy ───────────────────────────── */
-  const links = new Map($$(".route a").map((a) => [a.dataset.station, a]));
+  /* ── route scroll-spy (top line + side tabs) ───── */
+  const stationLinks = $$(".route a[data-station], .tabs a[data-station]");
+  const track = $(".route__track");
   const spy = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
-      links.forEach((a) => a.classList.remove("is-here"));
-      const a = links.get(e.target.dataset.station);
-      if (a) {
-        a.classList.add("is-here");
-        a.setAttribute("aria-current", "true");
-        links.forEach((o) => { if (o !== a) o.removeAttribute("aria-current"); });
-        const line = a.closest(".route__line");
-        if (line && line.scrollWidth > line.clientWidth) {
-          line.scrollTo({ left: a.parentElement.offsetLeft - line.clientWidth / 2 + a.offsetWidth / 2, behavior: reduceMotion ? "auto" : "smooth" });
-        }
+      const id = e.target.dataset.station;
+      stationLinks.forEach((a) => {
+        const on = a.dataset.station === id;
+        a.classList.toggle("is-here", on);
+        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+      const a = $(`.route a[data-station="${id}"]`);
+      if (a && track && track.scrollWidth > track.clientWidth) {
+        track.scrollTo({ left: a.parentElement.offsetLeft - track.clientWidth / 2 + a.offsetWidth / 2, behavior: reduceMotion ? "auto" : "smooth" });
       }
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
   spreads.forEach((s) => spy.observe(s));
+
+  /* ── progress train on the route ───────────────── */
+  const routeDots = $$(".route__line .route__dot");
+  let dotX = [];
+  function measureRoute() {
+    if (!track) return;
+    const tr = track.getBoundingClientRect();
+    dotX = routeDots.map((d) => { const r = d.getBoundingClientRect(); return r.left - tr.left + track.scrollLeft + r.width / 2; });
+    if (dotX.length < 2) return;
+    track.style.setProperty("--rail-l", dotX[0] + "px");
+    track.style.setProperty("--rail-w", dotX[dotX.length - 1] - dotX[0] + "px");
+    moveTrain();
+  }
+  let trainRaf = 0;
+  function moveTrain() {
+    trainRaf = 0;
+    if (dotX.length < 2) return;
+    const mid = scrollY + innerHeight * 0.45;
+    let i = 0;
+    for (let k = 0; k < spreads.length; k++) if (spreads[k].offsetTop <= mid) i = k;
+    const sec = spreads[i], next = spreads[i + 1];
+    const end = document.documentElement.scrollHeight - innerHeight * 0.55;
+    const span = Math.max(1, (next ? next.offsetTop : end) - sec.offsetTop);
+    const f = Math.min(1, Math.max(0, (mid - sec.offsetTop) / span));
+    const to = dotX[i + 1] !== undefined ? dotX[i + 1] : dotX[i];
+    const x = dotX[i] + (to - dotX[i]) * f;
+    track.style.setProperty("--train-x", x + "px");
+    track.style.setProperty("--done", ((x - dotX[0]) / (dotX[dotX.length - 1] - dotX[0])).toFixed(4));
+  }
+  addEventListener("scroll", () => { if (!trainRaf) trainRaf = requestAnimationFrame(moveTrain); }, { passive: true });
+  addEventListener("resize", measureRoute);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureRoute);
+  measureRoute();
+
+  /* ── scroll reveal: each spread's pieces get placed once ── */
+  if ("IntersectionObserver" in window) {
+    spreads.forEach((sec) => {
+      $$(".scrap, .rank, .postcard", sec).forEach((el, i) => {
+        const d = 0.14 + Math.min(i, 8) * 0.065 + (i % 3) * 0.012; // non-uniform, capped
+        el.style.setProperty("--d", d.toFixed(3) + "s");
+      });
+    });
+    spreads.forEach((sec) => { if (sec.getBoundingClientRect().top < innerHeight * 0.9) sec.classList.add("is-in"); });
+    const rootEl = document.documentElement;
+    rootEl.classList.add("reveal-on", "reveal-init");
+    requestAnimationFrame(() => requestAnimationFrame(() => rootEl.classList.remove("reveal-init")));
+    const rv = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); rv.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -18% 0px" });
+    spreads.forEach((sec) => { if (!sec.classList.contains("is-in")) rv.observe(sec); });
+  }
 
   /* ── drag the scraps ────────────────────────────── */
   if (finePointer) {
@@ -309,15 +360,13 @@
     if (s && music.top < innerHeight && music.bottom > 0) hit(s);
   });
 
-  /* ── cursor trail: marker ribbon + falling stickers ─ */
+  /* ── cursor trail: waxy crayon stroke + crumbs ──── */
   const trail = $(".trail");
   const tctx = trail.getContext("2d");
   let dpr = 1, W = 0, H = 0;
-  const pts = [];      // ribbon spine (eased head positions)
-  const bits = [];     // sticker scraps
+  const pts = [];      // stroke spine (eased head positions)
+  const crumbs = [];   // little bits of wax that flake off
   const marks = [];    // click stamps
-  const STICKER_COLORS = ["#ffe066", "#bfe6d3", "#f7cfc6", "#2546a8", "#f2a900", "#ffffff"];
-  const SHAPES = ["star", "heart", "dot", "ticket", "star", "heart"];
   function size() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = innerWidth; H = innerHeight;
@@ -327,23 +376,44 @@
   size();
   window.addEventListener("resize", size);
 
+  // Crayon wax texture: solid colour with paper "tooth" knocked out and lighter wax streaks.
+  const waxCache = new Map();
+  function wax(color) {
+    if (waxCache.has(color)) return waxCache.get(color);
+    const c = document.createElement("canvas"); c.width = c.height = 120;
+    const g = c.getContext("2d");
+    g.fillStyle = color; g.fillRect(0, 0, 120, 120);
+    let seed = 7;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    g.globalCompositeOperation = "destination-out";
+    for (let i = 0; i < 900; i++) {           // paper tooth: tiny gaps the wax skipped
+      g.globalAlpha = 0.35 + rnd() * 0.65;
+      g.fillRect(rnd() * 120, rnd() * 120, 0.6 + rnd() * 1.6, 0.6 + rnd() * 1.1);
+    }
+    g.globalAlpha = 0.28; g.lineWidth = 0.7; g.strokeStyle = "#000";
+    for (let i = 0; i < 46; i++) {            // diagonal drag marks
+      const x = rnd() * 140 - 10, y = rnd() * 140 - 10, l = 6 + rnd() * 16;
+      g.beginPath(); g.moveTo(x, y); g.lineTo(x + l, y - l * 0.45); g.stroke();
+    }
+    g.globalCompositeOperation = "source-atop";
+    g.globalAlpha = 0.18; g.fillStyle = "#fff";
+    for (let i = 0; i < 60; i++) g.fillRect(rnd() * 120, rnd() * 120, 2 + rnd() * 5, 1);  // waxy sheen
+    const pat = tctx.createPattern(c, "repeat");
+    waxCache.set(color, pat);
+    return pat;
+  }
+
   let raf = 0;
   const kick = () => { if (!raf) raf = requestAnimationFrame(draw); };
-  const LIFE = 420;
+  const LIFE = 460;
   let mx = -99, my = -99, hx = -99, hy = -99, live = false, travel = 0;
 
-  function spawn(x, y, n, spread) {
+  function flake(x, y, n, force) {
     for (let i = 0; i < n; i++) {
-      const a = Math.random() * Math.PI * 2, v = spread * (0.4 + Math.random());
-      bits.push({
-        x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 1.2,
-        r: Math.random() * 6, vr: (Math.random() - .5) * .25,
-        s: 5 + Math.random() * 5, t: performance.now(),
-        shape: SHAPES[(Math.random() * SHAPES.length) | 0],
-        c: Math.random() < .35 ? trailColor : STICKER_COLORS[(Math.random() * STICKER_COLORS.length) | 0]
-      });
+      const a = Math.random() * Math.PI * 2, v = force * (0.3 + Math.random());
+      crumbs.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v * 0.6 - 0.3, s: 1 + Math.random() * 2.2, r: Math.random() * 3, t: performance.now(), c: trailColor });
     }
-    if (bits.length > 120) bits.splice(0, bits.length - 120);
+    if (crumbs.length > 160) crumbs.splice(0, crumbs.length - 160);
   }
 
   if (!reduceMotion) {
@@ -353,7 +423,7 @@
         if (!live) { hx = mx = e.clientX; hy = my = e.clientY; live = true; }
         travel += Math.hypot(e.clientX - mx, e.clientY - my);
         mx = e.clientX; my = e.clientY;
-        if (travel > 90) { travel = 0; spawn(mx, my, 1, 1.4); }
+        if (travel > 16) { travel = 0; flake(mx, my, 1, 0.7); }
         kick();
       }, { passive: true });
       document.addEventListener("pointerleave", () => { live = false; });
@@ -361,40 +431,30 @@
     window.addEventListener("pointerdown", (e) => {
       if (e.target.closest("a, button, [data-drag], input")) return;
       marks.push({ x: e.clientX, y: e.clientY, t: performance.now(), r: Math.random() * 0.8 - 0.4, c: trailColor });
-      spawn(e.clientX, e.clientY, 7, 3.2);
+      flake(e.clientX, e.clientY, 12, 2.2);
       kick();
     }, { passive: true });
   }
 
-  function shape(c, b, size) {
+  function star(c, R, r) {
     c.beginPath();
-    if (b.shape === "star") {
-      for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rad = i % 2 ? size * .45 : size; c.lineTo(Math.cos(a) * rad, Math.sin(a) * rad); }
-      c.closePath();
-    } else if (b.shape === "heart") {
-      const k = size / 8;
-      c.moveTo(0, 6 * k); c.bezierCurveTo(-9 * k, 0, -5 * k, -8 * k, 0, -3 * k); c.bezierCurveTo(5 * k, -8 * k, 9 * k, 0, 0, 6 * k);
-    } else if (b.shape === "ticket") {
-      c.rect(-size, -size * .6, size * 2, size * 1.2);
-    } else {
-      c.arc(0, 0, size * .7, 0, Math.PI * 2);
-    }
+    for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rad = i % 2 ? r : R; c.lineTo(Math.cos(a) * rad, Math.sin(a) * rad); }
+    c.closePath();
   }
 
   function draw(now) {
     raf = 0;
     tctx.clearRect(0, 0, W, H);
 
-    // ease the pen head toward the pointer for a silky line
     if (live) {
-      hx += (mx - hx) * .42; hy += (my - hy) * .42;
+      hx += (mx - hx) * 0.42; hy += (my - hy) * 0.42;
       const last = pts[pts.length - 1];
-      if (!last || Math.hypot(hx - last.x, hy - last.y) > 1.2) pts.push({ x: hx, y: hy, t: now });
+      if (!last || Math.hypot(hx - last.x, hy - last.y) > 1.2) pts.push({ x: hx, y: hy, t: now, j: 0.75 + Math.random() * 0.5 });
     }
     while (pts.length && now - pts[0].t > LIFE) pts.shift();
-    if (pts.length > 60) pts.splice(0, pts.length - 60);
+    if (pts.length > 64) pts.splice(0, pts.length - 64);
 
-    // tapered marker ribbon
+    // the crayon stroke: tapered, ragged edge, wax texture fixed to the "paper"
     const n = pts.length;
     if (n > 2) {
       const left = [], right = [];
@@ -402,61 +462,52 @@
         const p = pts[i], q = pts[Math.min(i + 1, n - 1)], o = pts[Math.max(i - 1, 0)];
         let dx = q.x - o.x, dy = q.y - o.y; const len = Math.hypot(dx, dy) || 1; dx /= len; dy /= len;
         const age = 1 - (now - p.t) / LIFE;
-        const w = 0.4 + 5.5 * Math.pow(i / (n - 1), 0.9) * Math.max(0, age);
-        left.push([p.x - dy * w, p.y + dx * w]); right.push([p.x + dy * w, p.y - dx * w]);
+        const w = (0.6 + 6.5 * Math.pow(i / (n - 1), 0.85) * Math.max(0, age)) * p.j;
+        left.push([p.x - dy * w, p.y + dx * w]); right.push([p.x + dy * w * (2 - p.j), p.y - dx * w * (2 - p.j)]);
       }
       tctx.beginPath();
       tctx.moveTo(left[0][0], left[0][1]);
       for (let i = 1; i < n; i++) tctx.lineTo(left[i][0], left[i][1]);
       for (let i = n - 1; i >= 0; i--) tctx.lineTo(right[i][0], right[i][1]);
       tctx.closePath();
-      tctx.globalAlpha = .88; tctx.fillStyle = trailColor; tctx.fill();
-      // paper-white highlight down the spine
-      tctx.globalAlpha = .35; tctx.strokeStyle = "#fff"; tctx.lineWidth = 1.2; tctx.lineCap = "round";
-      tctx.beginPath(); tctx.moveTo(pts[Math.floor(n * .55)].x, pts[Math.floor(n * .55)].y);
-      for (let i = Math.floor(n * .55) + 1; i < n; i++) tctx.lineTo(pts[i].x, pts[i].y);
-      tctx.stroke();
-      // nib
-      tctx.globalAlpha = .95; tctx.fillStyle = trailColor;
-      tctx.beginPath(); tctx.arc(pts[n - 1].x, pts[n - 1].y, 3.2, 0, Math.PI * 2); tctx.fill();
-    }
-
-    // falling stickers (white die-cut border, flat colour)
-    for (let i = bits.length - 1; i >= 0; i--) {
-      const b = bits[i], age = now - b.t;
-      if (age > 1300) { bits.splice(i, 1); continue; }
-      b.vy += .11; b.vx *= .985; b.x += b.vx; b.y += b.vy; b.r += b.vr;
-      const pop = age < 120 ? age / 120 : 1;
-      const size = b.s * (pop < 1 ? .6 + pop * .5 : 1) * (1 - Math.max(0, age - 900) / 400 * .6);
-      tctx.save(); tctx.translate(b.x, b.y); tctx.rotate(b.r);
-      tctx.globalAlpha = Math.min(1, (1300 - age) / 300);
-      shape(tctx, b, size); tctx.lineJoin = "round";
-      tctx.lineWidth = 3; tctx.strokeStyle = "#fff"; tctx.stroke();
-      tctx.fillStyle = b.c; tctx.fill();
-      tctx.lineWidth = .8; tctx.strokeStyle = "rgba(23,22,26,.35)"; tctx.stroke();
+      tctx.globalAlpha = 0.92; tctx.fillStyle = wax(trailColor); tctx.fill();
+      // crayon tip
+      const h = pts[n - 1];
+      tctx.save(); tctx.translate(h.x, h.y);
+      tctx.globalAlpha = 0.95; tctx.fillStyle = wax(trailColor);
+      tctx.beginPath(); tctx.arc(0, 0, 4.2, 0, Math.PI * 2); tctx.fill();
       tctx.restore();
     }
 
-    // click stamps
+    // wax crumbs: tiny irregular flakes that drop and fade
+    for (let i = crumbs.length - 1; i >= 0; i--) {
+      const b = crumbs[i], age = now - b.t;
+      if (age > 900) { crumbs.splice(i, 1); continue; }
+      b.vy += 0.07; b.vx *= 0.97; b.x += b.vx; b.y += b.vy;
+      tctx.save(); tctx.translate(b.x, b.y); tctx.rotate(b.r);
+      tctx.globalAlpha = (1 - age / 900) * 0.85; tctx.fillStyle = b.c;
+      tctx.fillRect(-b.s / 2, -b.s / 3, b.s, b.s * 0.66);
+      tctx.restore();
+    }
+
+    // click stamps (ink ring + star)
     for (let i = marks.length - 1; i >= 0; i--) {
       const m = marks[i], age = now - m.t;
       if (age > 1400) { marks.splice(i, 1); continue; }
       const p = age / 1400;
-      const scale = age < 140 ? 1.5 - (age / 140) * .5 : 1;
+      const scale = age < 140 ? 1.5 - (age / 140) * 0.5 : 1;
       tctx.save();
       tctx.translate(m.x, m.y); tctx.rotate(m.r); tctx.scale(scale, scale);
-      tctx.globalAlpha = (1 - p) * .85;
-      tctx.strokeStyle = m.c; tctx.fillStyle = m.c;
-      tctx.lineWidth = 2.5;
-      tctx.beginPath(); tctx.arc(0, 0, 17, 0, Math.PI * 2); tctx.stroke();
-      tctx.lineWidth = 1;
-      tctx.beginPath(); tctx.arc(0, 0, 12, 0, Math.PI * 2); tctx.stroke();
-      shape(tctx, { shape: "star" }, 7); tctx.fill();
+      tctx.globalAlpha = (1 - p) * 0.85;
+      tctx.strokeStyle = wax(m.c); tctx.fillStyle = wax(m.c);
+      tctx.lineWidth = 2.5; tctx.beginPath(); tctx.arc(0, 0, 17, 0, Math.PI * 2); tctx.stroke();
+      tctx.lineWidth = 1; tctx.beginPath(); tctx.arc(0, 0, 12, 0, Math.PI * 2); tctx.stroke();
+      star(tctx, 7, 3); tctx.fill();
       tctx.restore();
     }
     tctx.globalAlpha = 1;
-    const moving = live && Math.hypot(mx - hx, my - hy) > .5;
-    if (pts.length > 1 || bits.length || marks.length || moving) kick();
+    const moving = live && Math.hypot(mx - hx, my - hy) > 0.5;
+    if (pts.length > 1 || crumbs.length || marks.length || moving) kick();
   }
 
   /* ── Eco Wrap booklet ───────────────────────────── */
