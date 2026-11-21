@@ -12,7 +12,9 @@
 <meta property="og:description" content="A junk journal and stamp rally of everything I'm up to. Collect all nine stamps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kevinou22.github.io/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-ko.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="icon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="preload" href="assets/fonts/dela-gothic-one-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/style.css">
@@ -23,6 +25,16 @@
 <!-- shared SVG: ink texture filter + stamp icons -->
 <svg width="0" height="0" class="defs" aria-hidden="true" focusable="false">
   <defs>
+    <filter id="sticker" x="-15%" y="-15%" width="130%" height="135%" color-interpolation-filters="sRGB">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="5" result="grow"/>
+      <feFlood flood-color="#ffffff" result="white"/>
+      <feComposite in="white" in2="grow" operator="in" result="border"/>
+      <feGaussianBlur in="grow" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="4" result="off"/>
+      <feFlood flood-color="#0a0c1e" flood-opacity=".35"/>
+      <feComposite in2="off" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="border"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
       <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="t"/>
       <feColorMatrix in="t" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.55" result="holes"/>
@@ -67,17 +79,7 @@
 
 <!-- journal edges on wide screens: binding on the left, index tabs on the right -->
 <div class="spine" aria-hidden="true"></div>
-<nav class="tabs" aria-label="Index tabs">
-  <a href="#hello" data-station="hello" style="--t:#ffe066">Hello</a>
-  <a href="#deca" data-station="deca" style="--t:#bfe6d3">DECA</a>
-  <a href="#mun" data-station="mun" style="--t:#cfe0ff">MUN</a>
-  <a href="#music" data-station="music" style="--t:#f7cfc6">Music</a>
-  <a href="#scouts" data-station="scouts" style="--t:#e9dcb8">Scouts</a>
-  <a href="#court" data-station="court" style="--t:#ffe066">Court</a>
-  <a href="#code" data-station="code" style="--t:#f7cfc6">Code</a>
-  <a href="#photos" data-station="photos" style="--t:#bfe6d3">Photos</a>
-  <a href="#findme" data-station="findme" style="--t:#cfe0ff">Find me</a>
-</nav>
+<div class="pageblock" aria-hidden="true"><span class="pageblock__ribbon"></span><span class="pageblock__tape pageblock__tape--a"></span><span class="pageblock__tape pageblock__tape--b"></span><span class="pageblock__clip"></span></div>
 
 <!-- stamp rally card -->
 <aside class="rally" aria-label="Stamp rally progress">
@@ -97,7 +99,7 @@
       <span class="washi washi--yellow" style="--r:-4deg; --x:8%;"></span>
       <span class="washi washi--blue" style="--r:6deg; --x:72%;"></span>
       <h1 class="hello__name" id="h-hello"><span>Kevin</span> <span>Ou</span></h1>
-      <p class="hello__intro">Hi! I pitch startup ideas, run a Model UN club, play percussion, take photos, and build little apps. This journal is where I keep all of it.</p>
+      <p class="hello__intro">Hi! I compete in business with DECA, run a Model UN club, play percussion, take photos, and build little apps. This journal is where I keep all of it.</p>
       <p class="hand hello__tip">press the stamp at every station to collect it <svg class="hand__arrow"><use href="#i-arrow"/></svg></p>
       <div class="stampspot hello__stamp"></div>
     </div>
@@ -243,9 +245,45 @@
     <div class="drumkit scrap taped" style="--r:-1deg" role="group" aria-label="Play a little percussion">
       <p class="hand drumkit__label">play a little (or press S, T, A)</p>
       <div class="drumkit__pads">
-        <button type="button" class="pad" data-sound="snare"><img src="assets/instruments/snare.jpg" alt="" width="960" height="960" loading="lazy" draggable="false" style="--pos: 50% 55%"><span>Snare</span></button>
-        <button type="button" class="pad" data-sound="timpani"><img src="assets/instruments/timpani.jpg" alt="" width="960" height="927" loading="lazy" draggable="false" style="--pos: 62% 62%"><span>Timpani</span></button>
-        <button type="button" class="pad" data-sound="triangle"><img src="assets/instruments/triangle.jpg" alt="" width="960" height="720" loading="lazy" draggable="false" style="--pos: 50% 50%"><span>Triangle</span></button>
+        <button type="button" class="pad" data-sound="snare"><svg class="pad__art" viewBox="0 0 220 170" aria-hidden="true"><g filter="url(#sticker)">
+  <path d="M30 60 L30 122 A80 18 0 0 0 190 122 L190 60 Z" fill="#c8323a"/>
+  <path d="M30 60 L30 122 A80 18 0 0 0 190 122 L190 60" fill="none" stroke="#17161a" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M44 72 v40 M70 76 v42 M96 78 v44 M124 78 v44 M150 76 v42 M176 72 v40" stroke="#ff7b80" stroke-width="2" opacity=".55"/>
+  <g fill="#d9dee6" stroke="#17161a" stroke-width="2.5"><rect x="46" y="80" width="12" height="22" rx="4"/><rect x="88" y="84" width="12" height="22" rx="4"/><rect x="130" y="84" width="12" height="22" rx="4"/><rect x="170" y="80" width="12" height="22" rx="4"/></g>
+  <g stroke="#9aa3ae" stroke-width="2.5"><path d="M52 66 v14 M94 70 v14 M136 70 v14 M176 66 v14 M52 102 v16 M94 106 v16 M136 106 v16 M176 102 v16"/></g>
+  <path d="M28 122 A82 19 0 0 0 192 122" fill="none" stroke="#d9dee6" stroke-width="9"/>
+  <path d="M28 122 A82 19 0 0 0 192 122" fill="none" stroke="#17161a" stroke-width="2.5" transform="translate(0 5)"/>
+  <ellipse cx="110" cy="60" rx="82" ry="19" fill="#f6f2e8" stroke="#17161a" stroke-width="3.5"/>
+  <ellipse cx="110" cy="60" rx="82" ry="19" fill="none" stroke="#d9dee6" stroke-width="7"/>
+  <ellipse cx="110" cy="60" rx="86" ry="22" fill="none" stroke="#17161a" stroke-width="2.5"/>
+  <ellipse cx="110" cy="60" rx="77" ry="16" fill="none" stroke="#17161a" stroke-width="1.5"/>
+  <g stroke-linecap="round"><path d="M60 22 L150 58" stroke="#17161a" stroke-width="9"/><path d="M60 22 L150 58" stroke="#e8c38a" stroke-width="5"/><path d="M160 18 L82 56" stroke="#17161a" stroke-width="9"/><path d="M160 18 L82 56" stroke="#e8c38a" stroke-width="5"/></g>
+</g></svg><span>Snare</span></button>
+        <button type="button" class="pad" data-sound="timpani"><svg class="pad__art" viewBox="0 0 200 200" aria-hidden="true"><g filter="url(#sticker)">
+  <g stroke="#17161a" stroke-width="5" stroke-linecap="round"><path d="M70 142 L50 186 M130 142 L150 186 M100 150 V188"/></g>
+  <g stroke="#9aa3ae" stroke-width="3" stroke-linecap="round"><path d="M70 142 L50 186 M130 142 L150 186 M100 150 V188"/></g>
+  <rect x="78" y="180" width="44" height="10" rx="3" fill="#3d3b44" stroke="#17161a" stroke-width="2.5"/>
+  <path d="M22 52 C22 112 56 152 100 152 C144 152 178 112 178 52 Z" fill="#c8773a" stroke="#17161a" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M40 62 C44 104 66 132 92 140 C70 124 56 98 54 62 Z" fill="#eaa56c" opacity=".85"/>
+  <path d="M150 62 C148 100 132 128 108 142 C140 136 164 104 166 62 Z" fill="#9a5424" opacity=".7"/>
+  <g stroke="#d9dee6" stroke-width="3"><path d="M40 56 L46 94 M72 58 L76 104 M128 58 L124 104 M160 56 L154 94"/></g>
+  <g fill="#d9dee6" stroke="#17161a" stroke-width="2"><circle cx="46" cy="96" r="4.5"/><circle cx="76" cy="106" r="4.5"/><circle cx="124" cy="106" r="4.5"/><circle cx="154" cy="96" r="4.5"/></g>
+  <ellipse cx="100" cy="52" rx="80" ry="18" fill="#f6f2e8" stroke="#17161a" stroke-width="3.5"/>
+  <ellipse cx="100" cy="52" rx="80" ry="18" fill="none" stroke="#d9dee6" stroke-width="7"/>
+  <ellipse cx="100" cy="52" rx="84" ry="21" fill="none" stroke="#17161a" stroke-width="2.5"/>
+  <g stroke-linecap="round"><path d="M128 18 L104 46" stroke="#17161a" stroke-width="6"/><path d="M128 18 L104 46" stroke="#e8c38a" stroke-width="3"/><circle cx="102" cy="48" r="7" fill="#f6f2e8" stroke="#17161a" stroke-width="2.5"/></g>
+</g></svg><span>Timpani</span></button>
+        <button type="button" class="pad" data-sound="triangle"><svg class="pad__art" viewBox="0 0 190 190" aria-hidden="true"><g filter="url(#sticker)">
+  <path d="M95 12 V38" stroke="#17161a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M95 12 V38" stroke="#f2e6c4" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="95" cy="12" r="6" fill="none" stroke="#17161a" stroke-width="3"/>
+  <path d="M88 52 L95 40 L160 154 L30 154 L80 66" fill="none" stroke="#17161a" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M88 52 L95 40 L160 154 L30 154 L80 66" fill="none" stroke="#c9ced6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 52 L148 136" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+  <path d="M44 146 H134" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+  <g stroke-linecap="round"><path d="M150 70 L112 122" stroke="#17161a" stroke-width="8"/><path d="M150 70 L112 122" stroke="#9aa3ae" stroke-width="4"/></g>
+  <g fill="#ffe066" stroke="#17161a" stroke-width="2"><path d="M166 104 l4 8 8 1 -6 6 2 8 -8 -4 -8 4 2 -8 -6 -6 8 -1Z"/></g>
+</g></svg><span>Triangle</span></button>
       </div>
     </div>
 
@@ -414,7 +452,6 @@
 
   <footer class="colophon">
     <p>Kevin Ou · Santa Clara, CA · <span class="num">2026</span></p>
-    <p class="credits">Instrument photos from Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Curly_maple_snare_drum_with_legacy_%22S%22_style_lugs.jpg" rel="noopener" target="_blank">snare</a> by Unnecessary user (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank">CC BY-SA 4.0</a>, cropped) · <a href="https://commons.wikimedia.org/wiki/File:Timpani_tuning.jpg" rel="noopener" target="_blank">timpani</a> by Andreas Praefcke (public domain) · <a href="https://commons.wikimedia.org/wiki/File:Triangel1.jpg" rel="noopener" target="_blank">triangle</a> by Žiga (CC0)</p>
   </footer>
 </main>
 

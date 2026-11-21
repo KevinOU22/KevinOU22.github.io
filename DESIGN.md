@@ -282,3 +282,7 @@ Easing is a single curve, `cubic-bezier(.16, 1, .3, 1)`. Durations run 0.12s for
 - **Don't** use hard offset shadows. Depth comes from the Paper and Lift shadow stacks.
 - **Don't** use red for decoration, status, or emphasis on things that cannot be touched.
 - **Don't** set body copy in Dela Gothic or Gaegu, or data in anything but Courier Prime.
+
+## Station grounds (added)
+
+Every station sits on its own full-bleed bookcloth band with a hard edge and no rule between bands: Hello indigo #1f2a5c, DECA green #1c4636 (linen diagonal), Model UN blue #183a5c (dot), Music plum #43223d (woven), Scouts olive #2e3b25 (canvas), Court slate #2a2c47 (speckle), Code ink #172034 (blueprint grid), Photos darkroom #36201c (safelight glow), Find me #20285a (airmail stripe). Pieces enter once per station: tossed from alternating angles on an overshoot curve (cubic-bezier(.34,1.45,.64,1)), lanyard badges swing on a damped linear() curve, and photos and notes drift a few pixels against the scroll. Instruments are drawn SVG cutouts with a white die-cut border.

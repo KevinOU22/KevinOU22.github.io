@@ -566,4 +566,29 @@
       if (t < 2600) requestAnimationFrame(step); else c.clearRect(0, 0, W, H);
     })(start);
   }
+  /* ── round 6: toss angles + gentle scroll parallax ── */
+  // Each piece lands from its own angle, alternating sides, so a section never moves as one block.
+  $$(".spread .scrap, .spread .rank").forEach((el, i) => {
+    const mag = [7, 11, 5, 13, 8, 10][i % 6];
+    el.style.setProperty("--toss", (i % 2 ? mag : -mag) + "deg");
+  });
+
+  // Photos, tickets, badges and notes drift a few pixels against the scroll, so the page keeps moving.
+  if (!reduceMotion) {
+    const floaters = $$(".print, .polaroid, .badge, .note, .railticket, .ribbon, .booklet, .sash, .postcard__photo")
+      .map((el, i) => ({ el, k: [0.05, -0.035, 0.07, -0.05, 0.04][i % 5] }));
+    let pRaf = 0;
+    const parallax = () => {
+      pRaf = 0;
+      const mid = innerHeight / 2;
+      floaters.forEach(({ el, k }) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > innerHeight + 100) return;
+        const off = Math.max(-28, Math.min(28, (r.top + r.height / 2 - mid) * k));
+        el.style.setProperty("--py", off.toFixed(1) + "px");
+      });
+    };
+    addEventListener("scroll", () => { if (!pRaf) pRaf = requestAnimationFrame(parallax); }, { passive: true });
+    parallax();
+  }
 })();
