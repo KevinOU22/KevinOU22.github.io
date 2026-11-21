@@ -117,13 +117,16 @@ Links:
   - DECA: @deca.3.skm (https://www.instagram.com/deca.3.skm/)
   - business: @official.bbcproductions (https://www.instagram.com/official.bbcproductions/)
 
-Absent, and not to be fabricated:
+Photos (supplied by Kevin, in assets/photos/, metadata stripped):
 
-- headshot or personal photos
-- photography portfolio images
-- quotes or testimonials
+- me-camera.jpg: Kevin shooting with a red camera in Japan (cover polaroid)
+- behold-cranes.jpg: Behold project, hanging paper cranes
+- scholastic-lake.jpg: dock at dusk, his likely Scholastic pick
+- japan-shinkansen.jpg: shinkansen platform, Japan tour summer 2026
+- studio-columns.jpg: Kevin with his Canon in a colonnade
+- headshot.jpg: formal headshot in a suit, on the Find me postcard
 
-Use clearly labeled placeholder frames until the real images arrive.
+Still absent, and not to be fabricated: quotes or testimonials.
 
 ## Product Principles
 

@@ -794,3 +794,16 @@ kbd { font-family: var(--f-data); font-size: .75em; border: 1px solid currentCol
 .booklet__bar { flex-wrap: wrap; }
 .booklet__count { white-space: nowrap; }
 .booklet__pdf { flex-basis: 100%; margin: 2px 0 0; }
+
+/* real photos */
+.photo { display: block; width: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); background: #d9d6cc; -webkit-user-drag: none; }
+.polaroid__slot.photo { aspect-ratio: 4 / 4.4; height: auto; }
+.print__img.photo { height: auto; }
+.print:nth-child(1) .print__img { aspect-ratio: 1; }
+.postcard__photo { float: right; width: min(44%, 190px); margin: -6px 0 14px 18px; background: #fff; padding: 8px 8px 6px; box-shadow: var(--shadow-paper); transform: rotate(4deg); position: relative; }
+.postcard__photo .photo { aspect-ratio: 3 / 4; }
+.postcard__photo figcaption { text-align: center; font-size: 1.05rem; margin-top: 4px; }
+.postcard__photo::before { content: ""; position: absolute; top: -14px; left: 26px; width: 14px; height: 44px; border: 3px solid #9aa0ad; border-radius: 8px; transform: rotate(-8deg); z-index: 2; }
+.postcard__msg { display: flow-root; }
+.photo { height: auto; }
+.postcard__photo { width: clamp(124px, 46%, 200px); }
